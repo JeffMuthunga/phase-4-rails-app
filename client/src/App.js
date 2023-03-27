@@ -1,14 +1,18 @@
 import './App.css';
-import NavBar from './components/common/NavBar';
+import { Routes, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
-
+import Campaign from './components/pages/Campaign';
+import NewCampaign from './components/pages/NewCampaign';
 
 
 function App() {
   return (
     <div>
-      <NavBar/>
-      <Home/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/campaigns/new' element={<NewCampaign/>}/>
+        <Route path='/campaigns' element={<Campaign/>}/>
+      </Routes>
     </div>
   );
 }
