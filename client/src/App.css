@@ -17,10 +17,10 @@ header {
 
 .home-container {
   width: 100%;
-  height: 100%;
+  height: 600px;
   background-position: center;
-  background-size: cover;
-  background-image: url('./components/images/charity.jpg');
+  background-image: url('./components/images/giphy.gif');
   background-attachment: fixed;
+  background-size: contain;
 }
 
