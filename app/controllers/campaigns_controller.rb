@@ -6,4 +6,9 @@ class CampaignsController < ApplicationController
     def show 
         render json: find_campaign 
     end 
+
+    def create
+        campaign = Campaign.create!(campaign_params)
+        render json: campaign, status: :created
+    end 
 end
