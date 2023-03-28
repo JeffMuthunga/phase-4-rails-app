@@ -11,4 +11,10 @@ class CampaignsController < ApplicationController
         campaign = Campaign.create!(campaign_params)
         render json: campaign, status: :created
     end 
+
+    def update 
+        campaign = find_campaign
+        campaign.update!(campaign_params)
+        render json: campaign, status: :ok
+    end 
 end
