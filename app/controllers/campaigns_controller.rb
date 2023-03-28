@@ -23,4 +23,11 @@ class CampaignsController < ApplicationController
         campaign.destroy
         head :no_content 
     end 
+
+    private 
+
+    def find_campaign
+        Campaign.find_by(id: params[:id])
+    end 
+    
 end
