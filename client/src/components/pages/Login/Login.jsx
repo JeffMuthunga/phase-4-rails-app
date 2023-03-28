@@ -1,8 +1,11 @@
 import React from 'react'
 import styles from './Login.module.css'
+import {Link} from 'react-router-dom'
 
 
 function Login() {
+
+
   return (
     <div className={styles.body_container}>
     <form className={styles.form_container}>
@@ -49,7 +52,7 @@ function Login() {
         </div>
 
         <button className={styles.sign_in_apl} >
-          <span>Sign up</span>
+          <Link to='/logout' style={{textDecoration: 'none',color: 'white'}}><span>Sign up</span></Link>
         </button>
       </div>
     </form>
