@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Campaign() {
-  return (
-    <div>Campaign</div>
-  )
+  return <div>Campaign</div>;
 }
 
-export default Campaign
+export default Campaign;
