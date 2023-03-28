@@ -11,4 +11,10 @@ class PledgesController < ApplicationController
         pledge = Pledge.create!(pledge_params )
         render json: pledge, status: :created
     end 
+
+    def update 
+        pledge = find_pledge
+        pledge.update!(pledge_params )
+        render json: pledge, status: :ok
+    end 
 end
