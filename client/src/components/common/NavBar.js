@@ -28,7 +28,7 @@ function NavBar() {
   return (
     <div className={`${styles.nav} ${blackBG && `${styles.nav_black}`}`}>
       <div className={styles.mainNav}>
-        <img className={styles.logo} src={logo} alt="Netflix Logo"/>      
+        <img className={styles.logo} src={logo} alt="Pledge Up Logo"/>      
         <ul className={styles.navItems}>
         {
             links.map((link)=>{
