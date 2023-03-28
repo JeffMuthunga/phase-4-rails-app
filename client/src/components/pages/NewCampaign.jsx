@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+// used styled components to avoid merge conflicts
 const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -8,7 +9,7 @@ const FormWrapper = styled.div`
   width: 100%;
   max-width: 600px;
   margin: 0 50%;
-  padding: 2rem;
+  padding: 7rem;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
