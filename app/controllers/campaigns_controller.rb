@@ -29,5 +29,9 @@ class CampaignsController < ApplicationController
     def find_campaign
         Campaign.find_by(id: params[:id])
     end 
-    
+
+    def campaign_params
+        params.permit(:title, :description, :category, :goal_amount, :start_date, :end_date, :user_id)
+    end
+
 end
