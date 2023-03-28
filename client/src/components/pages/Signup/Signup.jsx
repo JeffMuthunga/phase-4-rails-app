@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './Logout.module.css'
+import styles from './Signup.module.css'
 import { Link } from 'react-router-dom'
 import giphy from './giphy.gif'
 
-function Logout() {
+function Signup() {
   return (
     <div className={styles.body_container}>
         <div className={styles.photo_container}>
@@ -69,4 +69,4 @@ function Logout() {
   )
 }
 
-export default Logout
+export default Signup

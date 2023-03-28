@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import logo from '../images/pledge_up_logo.png'
 import styles from "./NavBar.module.css"
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+
 
 
 
@@ -9,8 +10,7 @@ function NavBar() {
   const links = [
     {name: "Home", link:"/"},
     {name: "Campaigns", link:"/campaigns"},
-    { name:'+ Add Campaign', link:"/campaigns/new"},
-    {name: 'Login' , link: "/login" }
+    { name:'+ Add Campaign', link:"/campaigns/new"}
   ]
 
   // displaying black background on scrolling down
@@ -40,7 +40,7 @@ function NavBar() {
         </ul> 
       </div>
       <button className={styles.home_button}>
-        Login
+      <Link to='/login' style={{textDecoration: 'none',color: 'white'}}><span>Log in</span></Link>
       </button>
     </div>
   )

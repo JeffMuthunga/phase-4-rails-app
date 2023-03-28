@@ -44,7 +44,9 @@ function Login() {
           className={styles.input_field}
           id="password_field"
         />
-        <button className={styles.sign_in_btn}> <span>Log in</span></button>
+        <button className={styles.sign_in_btn}> 
+        <Link to='/' style={{textDecoration: 'none',color: 'white'}}><span>Log in</span></Link>
+        </button>
         <div className={styles.separator}>
           <hr className={styles.line}/>
           <span> Or</span>
@@ -52,7 +54,7 @@ function Login() {
         </div>
 
         <button className={styles.sign_in_apl} >
-          <Link to='/logout' style={{textDecoration: 'none',color: 'white'}}><span>Sign up</span></Link>
+          <Link to='/signup' style={{textDecoration: 'none',color: 'white'}}><span>Sign up</span></Link>
         </button>
       </div>
     </form>

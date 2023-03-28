@@ -82,3 +82,13 @@ border-bottom-right-radius: 1200px;
     border: 0;
     background-color: black;
   }
+
+  @media (max-width: 768px) {
+    .photo_container {
+      flex-basis: 100%;
+    }
+    
+    .form_container {
+      flex-basis: 100%;
+    }
+  }
