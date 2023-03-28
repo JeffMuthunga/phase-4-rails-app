@@ -77,7 +77,7 @@ const NewCampaign = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log`description: ${description}, category: ${category}, goal_amount: ${goal_amount}, start_date: ${start_date},end_date:${end_date}`();
+    console.log`description: ${description}, category: ${category}, goal_amount: ${goal_amount}, start_date: ${start_date},end_date:${end_date}`;
   };
 
   // :title
