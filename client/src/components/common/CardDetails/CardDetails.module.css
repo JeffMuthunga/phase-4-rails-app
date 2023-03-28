@@ -1,0 +1,22 @@
+.body_container {
+   height: 60vh;
+
+}
+.container {
+    background-color: blue;
+    display: flex;
+    align-items: center;
+}
+
+.photo_container {
+    justify-content: center;
+    align-items: center;
+
+}
+.photo_container img {
+    
+}
+
+.details_container {
+
+}
