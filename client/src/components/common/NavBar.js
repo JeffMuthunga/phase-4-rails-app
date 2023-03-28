@@ -9,7 +9,8 @@ function NavBar() {
   const links = [
     {name: "Home", link:"/"},
     {name: "Campaigns", link:"/campaigns"},
-    { name:'+ Add Campaign', link:"/campaigns/new"}    
+    { name:'+ Add Campaign', link:"/campaigns/new"},
+    {name: 'Login' , link: "/login" }
   ]
 
   // displaying black background on scrolling down
@@ -42,18 +43,6 @@ function NavBar() {
         Login
       </button>
     </div>
-    // <header>
-    //     <h1>Pledge up</h1>
-    //     <h2>campaigns</h2>
-    //     <button className="home-button">
-    //         + add campaign
-    //     </button>
-    //     <button className="home-button">
-    //         Login
-    //     </button>
-        
-
-    // </header>
   )
 }
 
