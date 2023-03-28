@@ -23,4 +23,14 @@ class PledgesController < ApplicationController
         pledge.destroy
         head :no_content 
     end 
+
+    private 
+
+    def find_pledge
+        Pledge.find_by(id: params[:id])
+    end 
+
+    def pledge_params 
+        params.permit(:pledge_amount, :user_id, :campaign_id)
+    end
 end
