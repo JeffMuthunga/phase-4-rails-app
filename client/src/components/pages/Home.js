@@ -1,18 +1,15 @@
 import React from 'react'
-import NavBar from '../common/NavBar'
-import Footer from '../common/Footer/Footer'
 import Banner from '../common/Banner'
 import Brands from '../common/Brands'
+import About from '../common/About'
 
 
 function Home() {
   return (
-    <div className='home-container'>    
-      <NavBar/>
+    <div className='home-container'>   
       <Banner/>
-      <Brands/>
-      <Footer/>
-  
+      <Brands/> 
+      <About/>
     </div>
   )
 }
