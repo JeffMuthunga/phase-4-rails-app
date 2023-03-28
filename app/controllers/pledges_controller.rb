@@ -6,4 +6,9 @@ class PledgesController < ApplicationController
     def show 
         render json: find_pledge
     end 
+
+    def create
+        pledge = Pledge.create!(pledge_params )
+        render json: pledge, status: :created
+    end 
 end
