@@ -17,4 +17,10 @@ class CampaignsController < ApplicationController
         campaign.update!(campaign_params)
         render json: campaign, status: :ok
     end 
+
+    def destroy
+        campaign = find_campaign
+        campaign.destroy
+        head :no_content 
+    end 
 end
