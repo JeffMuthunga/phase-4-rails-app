@@ -17,4 +17,10 @@ class PledgesController < ApplicationController
         pledge.update!(pledge_params )
         render json: pledge, status: :ok
     end 
+
+    def destroy
+        pledge = find_pledge
+        pledge.destroy
+        head :no_content 
+    end 
 end
