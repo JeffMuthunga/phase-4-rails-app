@@ -6,6 +6,12 @@ class Campaign < ApplicationRecord
     validates :start_date, presence: true
     validates :end_date, presence: true
     
+    CATEGORIES = ['Education', 'IT', 'Hospitality', 'Farming', 'Advertising', 'Manufacturing', 'Healthcare', 'Legal']
+
+    validates :category, inclusion: {
+    in: CATEGORIES,
+    message: "must be one of: #{CATEGORIES.join(', ')}"
+  } 
     #associations 
     belongs_to :user
     has_many :reviews, through: :user
