@@ -4,8 +4,8 @@ class PledgesController < ApplicationController
     end
 
     def show 
-        render json: find_pledge
-    end 
+        render json: find_campaign,include:["users","users.reviews"]
+    end
 
     def create
         pledge = Pledge.create!(pledge_params )
