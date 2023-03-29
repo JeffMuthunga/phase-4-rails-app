@@ -3,6 +3,8 @@ import styles from './CardDetails.module.css'
 import oldman from './h.jpg'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import ReviewCard from '../ReviewCard/ReviewCard';
+
 
 
 function CardDetails() {
@@ -71,6 +73,9 @@ function CardDetails() {
     </form>
     
     </div>
+    </div>
+    <div>
+        <ReviewCard/>
     </div>
 
     </div>

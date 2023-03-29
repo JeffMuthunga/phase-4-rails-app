@@ -1,12 +1,12 @@
-.l-card-around {
+.l_card-around {
     display: grid;
   }
-  .l-card img {
+  .l_card img {
       width: 100%;
       height: auto;
   } 
   
-  .l-card {
+  .l_card {
       width: 200px;
       min-width: 300px;
       max-width: 300px;
@@ -21,7 +21,7 @@
    
   }
   
-  .l-card__text p {
+  .l_card_text p {
       font-size: 20px;
       font-family: "Vollkorn", serif;
       font-weight: 400;
@@ -30,19 +30,19 @@
     word-wrap: break-word;
   }
   
-  .l-card__text p::after {
+  .l_card_text p::after {
       content: "\201D";
       display: inline;
       color: #999;
   }
   
-  .l-card__text p::before {
+  .l_card_text p::before {
       content: "\201C";
       display: inline;
       color: #999;
   }
   
-  .l-card__user {
+  .l_card_user {
       display: flex;
       flex-direction: row;
       padding-top: 24px;
@@ -50,32 +50,32 @@
       /* border-top: 1px solid #c1c1c1; */
       align-items: center;
   }
-  .l-card__userImage {
+  .l_card_userImage {
       width: 42px;
       height: 42px;
       overflow: hidden;
       border-radius: 50%;
   }
   
-  .l-card__userImage img {
+  .l_card_userImage img {
       width: 100%;
       height: 100%;
       object-fit: cover;
   }
   
-  .l-card__userInfo {
+  .l_card_userInfo {
       display: flex;
       flex-direction: column;
       margin-left: 16px;
   }
   
-  .l-card__userInfo span:nth-child(1) {
+  .l_card_userInfo span:nth-child(1) {
       font-weight: bold;
       font-family: sans-serif;
       font-size: 14px;
       color: #3f3f55;
   }
-  .l-card__userInfo span:nth-child(2) {
+  .l_card_userInfo span:nth-child(2) {
       color: #adada6;
       font-family: sans-serif;
       font-size: 12px;

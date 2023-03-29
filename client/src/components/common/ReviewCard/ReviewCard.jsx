@@ -5,18 +5,18 @@ function ReviewCard() {
     // let plants = Array(data.star_rating).fill("🔥")
     // {data.star_rating} {plants.join("")}
   return (
-    <div className={styles.l-card-around}>
-    <main className={styles.l-card}>
-	<section className={styles.l-card__text}>
+    <div className={styles.l_card_around}>
+    <main className={styles.l_card}>
+	<section className={styles.l_card_text}>
 		<p>
 			avsvvsdvsdvsdvkhihknkkkiihihihjojojihihiihih
 		</p>
 	</section>
-	<section className={styles.l-card__user}>
-		<div className={styles.l-card__userImage}>
+	<section className={styles.l_card_user}>
+		<div className={styles.l_card_userImage}>
 			<img src="https://thumbs.dreamstime.com/b/creative-vector-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mo-107388687.jpg" alt="Naruto"/>
 		</div>
-		<div className={styles.l-card__userInfo}>
+		<div className={styles.l_card_userInfo}>
 			<span>asdjjasbdjsb</span>
 			<span> 6 🔥🔥🔥🔥🔥 </span>
 		</div>
