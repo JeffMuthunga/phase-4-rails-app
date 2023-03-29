@@ -14,6 +14,8 @@ images = ["https://images.pexels.com/photos/2980955/pexels-photo-2980955.jpeg?au
     "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1600"
     ]
 
+    categoryarr = ["Global Warming/Environment","Animals","Education","Health","Musicians/Artists", "Small Business"]
+
 puts "seeding..................."
 
 # Create 10 users
@@ -30,7 +32,7 @@ puts "seeding..................."
     Campaign.create(
         title: Faker::Lorem.sentence(word_count: 3),
         description: Faker::Lorem.paragraph(sentence_count: 3),
-        category: Faker::Job.field,
+        category: categoryarr.sample,
         goal_amount: Faker::Number.decimal(l_digits: 5, r_digits: 2),
         image_url: images.sample,
         current_amount: Faker::Number.decimal(l_digits: 4, r_digits: 1),
