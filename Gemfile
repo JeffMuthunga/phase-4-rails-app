@@ -6,6 +6,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 #serializer gem 
 gem 'active_model_serializers'
 
+#seeds dummy data to the tables
+gem 'faker', '~> 2.20'
+
 # for user password
 gem 'bcrypt'
 
