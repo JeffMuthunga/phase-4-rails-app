@@ -8,7 +8,7 @@ import Signup from './components/pages/Signup/Signup';
 import NavBar from './components/common/NavBar'
 import Footer from './components/common/Footer/Footer'
 import CardDetails from './components/common/CardDetails/CardDetails';
-
+import About from './components/common/About';
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/campaigns/new' element={<NewCampaign/>}/>
         <Route path='/campaigns' element={<Campaign/>}/>
+        <Route path='/about' element={<About/>}/>  
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>        
         <Route path='/campaigns/id' element={<CardDetails/>}/>
