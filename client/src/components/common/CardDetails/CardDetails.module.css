@@ -1,22 +1,94 @@
 .body_container {
-   height: 60vh;
+   height: auto;
+   padding-top: 40px;
+   
 
 }
 .container {
     background-color: blue;
     display: flex;
     align-items: center;
+    padding: 20px;
+    gap: 20px;
 }
 
 .photo_container {
     justify-content: center;
     align-items: center;
+    display:flex;
+    height: 500px;
+   
 
+    
 }
 .photo_container img {
+    max-width: 100%;
+    max-height: 100%;
+    align-self: flex-start;
+    border-radius: 10px;
     
 }
 
 .details_container {
-
+    background-color: blueviolet;
+    width: 550px;
+    height: 500px;
+    border-radius: 20px;
 }
+h1,h2,h3 {
+    text-align: center;
+}
+.separator .line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border: 0;
+    background-color: black;
+  }
+  .input_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: red;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  label {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .input_group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+  
+  input {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    color: black;
+    width: 300px;
+  }
+  
+  input[type='submit'] {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type='submit']:hover {
+    background-color: green;
+  }
+  
