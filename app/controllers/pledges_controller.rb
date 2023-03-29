@@ -9,6 +9,7 @@ class PledgesController < ApplicationController
 
     def create
         pledge = Pledge.create!(pledge_params )
+        byebug
         render json: pledge, status: :created
     end 
 
