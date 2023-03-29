@@ -4,7 +4,7 @@ class CampaignsController < ApplicationController
     end
 
     def show 
-        render json: find_campaign 
+        render json: find_campaign,include:["users","users.reviews"]
     end 
 
     def create
