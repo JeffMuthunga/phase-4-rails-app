@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Campaign from './components/pages/Campaign';
@@ -12,13 +13,18 @@ import About from './components/common/About';
 
 
 function App() {
+  const [search,setSearch]=useState("")
+
+   function setSearchString(str){
+    setSearch(str);   
+  }
   return (
     <div>
-      <NavBar/>
+      <NavBar setSearchString={setSearchString}/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<Home search={search}/>}/>
         <Route path='/campaigns/new' element={<NewCampaign/>}/>
-        <Route path='/campaigns' element={<Campaign/>}/>
+        <Route path='/campaigns' element={<Campaign search={search}/>}/>
         <Route path='/about' element={<About/>}/>  
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>        
