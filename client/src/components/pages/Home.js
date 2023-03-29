@@ -9,7 +9,6 @@ function Home() {
     <div className='home-container'>   
       <Banner/>
       <Brands/> 
-      <About/>
     </div>
   )
 }
