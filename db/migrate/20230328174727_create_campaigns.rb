@@ -8,6 +8,7 @@ class CreateCampaigns < ActiveRecord::Migration[7.0]
       t.integer :start_date
       t.integer :end_date
       t.integer :user_id
+      t.integer :current_amount
 
       t.timestamps
     end
