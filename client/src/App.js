@@ -7,6 +7,8 @@ import Login from './components/pages/Login/Login';
 import Signup from './components/pages/Signup/Signup';
 import NavBar from './components/common/NavBar'
 import Footer from './components/common/Footer/Footer'
+import CardDetails from './components/common/CardDetails/CardDetails';
+
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
         <Route path='/campaigns' element={<Campaign/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>        
+        <Route path='/campaigns/id' element={<CardDetails/>}/>
       </Routes>
       <Footer/>
     </div>
