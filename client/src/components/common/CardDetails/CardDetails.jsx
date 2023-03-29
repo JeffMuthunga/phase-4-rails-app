@@ -72,6 +72,7 @@ function CardDetails() {
     
     </div>
     </div>
+
     </div>
 
   )
