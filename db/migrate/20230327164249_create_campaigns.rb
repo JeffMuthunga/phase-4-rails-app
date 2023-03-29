@@ -5,10 +5,11 @@ class CreateCampaigns < ActiveRecord::Migration[7.0]
       t.string :description
       t.string :category
       t.float :goal_amount
+      t.string :image_url
       t.integer :current_amount
-      t.integer :start_date
-      t.integer :end_date
-      t.integer :user_id
+      t.date :start_date
+      t.date :end_date
+      # t.integer :user_id
 
       t.timestamps
     end
