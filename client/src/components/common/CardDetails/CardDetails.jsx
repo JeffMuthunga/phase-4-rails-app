@@ -9,12 +9,22 @@ import {useParams} from 'react-router-dom'
 
 
 
+
 function CardDetails() {
     const id = useParams().id
 
+    const initialState = {
+        comment: "",
+        user_id: 5,
+        rating: "",
+        campaign_id: id
+      };
+
     
     const [data, setData] = useState([])
+    const [reviewData, setReviewData] = useState([])
     const [pledge, setPledge] = useState(0)
+    const [formData, setFormData] = useState(initialState)
 
     useEffect(()=>{
         fetch(`/campaigns/${id}`)
@@ -22,6 +32,14 @@ function CardDetails() {
         .then((data) => setData(data))
 
     }, [])
+
+    useEffect(()=>{
+        fetch(`/campaigns/${id}/reviews`)
+        .then(r=>r.json())
+        .then(data => setReviewData(data))
+
+    },[])
+    // console.log(reviewData[0].user.username)
     let goal_percent = Math.round((data.current_amount/data.goal_amount)*100)
    
     function handleChange(e){
@@ -44,6 +62,31 @@ function CardDetails() {
         })
         window.location.reload();
     }
+
+    function handleFormChange(e) {
+        setFormData({
+            ...formData,
+            [e.target.id]: [e.target.value],
+        })
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        fetch('/reviews', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData)
+        })
+        .then((r)=>r.json())
+        .then((data) =>{
+            console.log(data)
+            setFormData(initialState)
+            setReviewData(data)
+        })
+    }
+
 
 
   return (
@@ -108,16 +151,18 @@ function CardDetails() {
     <form >
         <label>Tell us your experience</label>
         <div className={styles.input_group}>
-        <input type="text"  name="comment" placeholder="Leave a Review..."/>     
-        <input type="number"  name="star_rating" placeholder="Stars"/>       
-        <input type="submit"  value="Post Review"/>
+        <input type="text" id='comment' name="comment" value={formData.comment} placeholder="Leave a Review..." onChange={handleFormChange}/>     
+        <input type="number"  id="rating" max="5" min="0" name="star_rating" value={formData.rating} placeholder="Stars" onChange={handleFormChange}/>       
+        <input type="submit"  value="Post Review" onSubmit={handleSubmit}/>
         </div>
     </form>
     
     </div>
     </div>
-    <div>
-        <ReviewCard/>
+    <div className={styles.reviews_div}>
+        <div className={styles.card_details_reviews}>
+        {reviewData.map((review)=> <ReviewCard reviewData={review} key={review.id}/>)}
+        </div>
     </div>
 
     </div>
