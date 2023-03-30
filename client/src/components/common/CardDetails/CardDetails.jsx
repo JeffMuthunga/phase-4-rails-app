@@ -1,21 +1,103 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styles from './CardDetails.module.css'
 import oldman from './h.jpg'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import ReviewCard from '../ReviewCard/ReviewCard';
+import {useParams} from 'react-router-dom'
+
+
 
 
 
 function CardDetails() {
+    const id = useParams().id
+
+    const initialState = {
+        comment: "",
+        user_id: 5,
+        rating: "",
+        campaign_id: id
+      };
+
+    
+    const [data, setData] = useState([])
+    const [reviewData, setReviewData] = useState([])
+    const [pledge, setPledge] = useState(0)
+    const [formData, setFormData] = useState(initialState)
+
+    useEffect(()=>{
+        fetch(`/campaigns/${id}`)
+        .then(r => r.json())
+        .then((data) => setData(data))
+
+    }, [])
+
+    useEffect(()=>{
+        fetch(`/campaigns/${id}/reviews`)
+        .then(r=>r.json())
+        .then(data => setReviewData(data))
+
+    },[])
+    
+    let goal_percent = Math.round((data.current_amount/data.goal_amount)*100)
+   
+    function handleChange(e){
+       setPledge(e.target.value)
+    }
+    
+
+    function handleClick() {
+        fetch("/pledges", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                pledge_amount: pledge,
+                user_id: 3,
+                campaign_id: id
+        })
+        })
+        window.location.reload();
+    }
+
+    function handleFormChange(e) {
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value,
+        })
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        console.log("f its meant to be")
+        fetch('/reviews', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData)
+        })
+        .then((r)=>r.json())
+        .then((data) =>{
+            console.log(data)
+            setReviewData([...reviewData, data])
+            setFormData(initialState)
+        })
+    }
+
+
+
   return (
     <div className={styles.body_container}>
-        <h1>Hungama</h1>
+        <h1>{data.title}</h1>
         <h2>Project by Nawal Mubin</h2>
-        <h3>Category: War</h3>
+        <h3>Category: {data.category}</h3>
     <div className={styles.container}>
         <div className={styles.photo_container}>
-            <img src={oldman} alt="Campaign image" />
+            <img src={data.image_url} alt={data.title} />
         </div>
         <div className={styles.details_container}>
         <div className={styles.separator}>
@@ -23,9 +105,9 @@ function CardDetails() {
             <hr className={styles.line}/>
         </div>
        
-        <h3>End date: </h3>
+        <h3>End date: {data.end_date} </h3>
         <div className={styles.progress_container}>
-        <CircularProgressbar value={60} text={`${60}% of goal met`} strokeWidth={7} styles={{ 
+        <CircularProgressbar value={goal_percent} text={`${goal_percent}% of goal met`} strokeWidth={7} styles={{ 
             path: {
                 stroke: '#1DA1F2',
                 strokeLinecap: 'butt',
@@ -38,17 +120,21 @@ function CardDetails() {
         }} />
         
     </div>
-    <h3>Kshs50,000</h3>
-    <h4>Goal: Kshs70,000</h4>
+    <h3>Kshs<span style={{color: 'green'}}>{data.current_amount}</span></h3>
+    <h4>Goal: Kshs<span style={{color: 'red', fontSize: '2rem'}}>{data.goal_amount}</span></h4>
 
-    <div className={styles.button}>
+    <div className={styles.pledge_amount}>
+        <input type="number"  onChange={handleChange} name="amount" placeholder="Amount"/>  
+    </div>
+
+    <div className={styles.button} onClick={handleClick}>
       <div className={styles.box}>P</div>
       <div className={styles.box}>L</div>
       <div className={styles.box}>E</div>
       <div className={styles.box}>D</div>
       <div className={styles.box}>G</div>
       <div className={styles.box}>E</div>
-    </div>
+        </div>
         </div>
 
     </div>
@@ -58,24 +144,26 @@ function CardDetails() {
     <div className={styles.description_reviews}>
     <div className={styles.description_container} style={{ gridColumn: "1 / span 2", width: "66.67%" }}>
         <h3>Story</h3>
-        <h4>In the past, mainstream media has often played into several stereotypes when portraying South Asian characters and culture. Hungama strives to dismantle decades of these storylines and celebrate South Asian culture, while also finding a bridge between a cultural and Western identity.
-        </h4>
+        <h4><span style={{color: 'brown', fontSize: '1.5rem'}}>{data.description}</span></h4>
+        
     </div>
     
     <div className={styles.input_container} style={{ width: "33.33%" }}>
-    <form >
+    <form onSubmit={handleSubmit}>
         <label>Tell us your experience</label>
         <div className={styles.input_group}>
-        <input type="text"  name="comment" placeholder="Leave a Review..."/>     
-        <input type="number"  name="star_rating" placeholder="Stars"/>       
-        <input type="submit"  value="Post Review"/>
+        <input type="text" id='comment' name="comment" value={formData.comment} placeholder="Leave a Review..." onChange={handleFormChange}/>     
+        <input type="number"  id="rating" max="5" min="0" name="star_rating" value={formData.rating} placeholder="Stars" onChange={handleFormChange}/>       
+        <input type="submit"  value="Post Review" />
         </div>
     </form>
     
     </div>
     </div>
-    <div>
-        <ReviewCard/>
+    <div className={styles.reviews_div}>
+        <div className={styles.card_details_reviews}>
+        {reviewData.map((review)=> <ReviewCard reviewData={review} key={review.id}/>)}
+        </div>
     </div>
 
     </div>
