@@ -5,7 +5,6 @@ class Campaign < ApplicationRecord
     validates :goal_amount, presence: true, numericality: {greater_than:0}
     validates :start_date, presence: true
     validates :end_date, presence: true
-
     validates :category, presence: true
 
     #associations 

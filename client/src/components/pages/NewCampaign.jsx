@@ -1,27 +1,29 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
+import Swal from 'sweetalert2'
 import styled from "styled-components";
-
+export default function NewCampaign(){
 // used styled components to avoid merge conflicts
 const FormWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   width: 100%;
   max-width: 600px;
-  margin: 0 50%;
-  padding: 7rem;
-  background-color: #fff;
+  margin: 0 46%;
+  margin-top: -56%;
+  padding: 6rem;
+  background-color: rgb(231, 231, 231);
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
 `;
-
 const FormLabel = styled.label`
   display: block;
+  color: green;
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 `;
-
 const FormInput = styled.input`
   width: 100%;
   padding: 0.5rem;
@@ -36,7 +38,6 @@ const FormInput = styled.input`
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   }
 `;
-
 const FormTextarea = styled.textarea`
   width: 100%;
   padding: 0.5rem;
@@ -52,9 +53,8 @@ const FormTextarea = styled.textarea`
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   }
 `;
-
 const SubmitButton = styled.button`
-  background-color: #007bff;
+  background-color: green;
   color: white;
   border: none;
   border-radius: 4px;
@@ -63,101 +63,107 @@ const SubmitButton = styled.button`
   font-size: 1rem;
   font-weight: bold;
   &:hover {
-    background-color: #0062cc;
+    background-color: rgb(1, 45, 1);
   }
 `;
-
-const NewCampaign = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [goal_amount, setGoal_amount] = useState("");
-  const [start_date, setStart_date] = useState("");
-  const [end_date, setEnd_date] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log`title: ${title},description: ${description}, category: ${category}, goal_amount: ${goal_amount}, start_date: ${start_date},end_date:${end_date}`;
-  };
-
-  // :title
-  //     t.string :description
-  //     t.string :category
-  //     t.float :goal_amount
-  //     t.date :start_date
-  //     t.date :end_date
-
+function handleSubmit(e){
+    // prevent reloading
+    e.preventDefault();
+    const formData={
+        title:e.target.title.value,
+        description:e.target.description.value,
+        category:e.target.category.value,
+        goal_amount:e.target.goal_amount.value,
+        image_url:e.target.image_url.value,
+        current_amount:e.target.current_amount.value,
+        start_date:e.target.start_date.value,
+        end_date:e.target.end_date.value
+    };
+    fetch("http://localhost:3000/campaigns",{
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    }
+    )
+    .then(response=>response.json())
+    .then(data=>data)
+    // reset input information
+    e.target.reset()
+    Swal.fire({
+        title: 'Success',
+        text: 'Added successfully',
+        icon: 'success',
+        confirmButtonText: 'Exit',
+        confirmButtonColor:"green"
+      })
+}
   return (
-    <FormWrapper>
+    <>
+    <div className="campaign-image">
+      <img src="https://www.shutterstock.com/image-vector/vector-illustration-flat-style-business-260nw-1371521327.jpg"
+       alt="vector_illustration" />
+    </div>
+    <div className="form-div">
+      <FormWrapper>
       <form onSubmit={handleSubmit}>
         <FormLabel htmlFor="name">Title:</FormLabel>
         <FormInput
           id="name"
           type="text"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
+          name="title"
           required
         />
-
-        <FormLabel htmlFor="email">Description:</FormLabel>
+        <FormLabel htmlFor="description">Description:</FormLabel>
         <FormTextarea
-          id="description"
-          rows="5"
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
+          id='description'
+          rows="6"
+          name="description"
           required
         />
-
-        <FormLabel htmlFor="phone">Category:</FormLabel>
+        <FormLabel htmlFor="category">Category:</FormLabel>
         <FormInput
           id="category"
           type="text"
-          value={category}
-          onChange={(event) => setCategory(event.target.value)}
+          name="category"
           required
         />
-
-        <FormLabel htmlFor="phone">Goal amount:</FormLabel>
+        <FormLabel htmlFor="goal_amount">Goal amount:</FormLabel>
         <FormInput
           id="goal_amount"
           type="number"
-          value={goal_amount}
-          onChange={(event) => setGoal_amount(event.target.value)}
+          name="title"
           required
           min="10"
         />
-
+         <FormLabel htmlFor="image_url">Image Url:</FormLabel>
+        <FormInput
+          id="image_url"
+          type="url"
+          name="image_url"
+          required
+        />
         <FormLabel htmlFor="start_date">Start date:</FormLabel>
         <FormInput
           id="start_date"
           type="date"
-          value={start_date}
-          onChange={(event) => setStart_date(event.target.value)}
+          name="title"
           required
         />
-
         <FormLabel htmlFor="end_date">End date:</FormLabel>
         <FormInput
           id="end_date"
-          type="date"
-          value={end_date}
-          onChange={(event) => setEnd_date(event.target.value)}
+          name="title"
           required
         />
-
-        {/* <FormLabel htmlFor="message">Message:</FormLabel>
-        <FormTextarea
-          id="message"
-          rows="5"
-          value={message}
-          onChange={(event) => setMessage(event.target.value)}
-          required
-        /> */}
-
         <SubmitButton type="submit">Submit</SubmitButton>
       </form>
     </FormWrapper>
+    </div>
+    </>
   );
 };
 
-export default NewCampaign;
+
