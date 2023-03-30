@@ -1,14 +1,14 @@
 import React from 'react'
 import Banner from '../common/Banner'
 import Brands from '../common/Brands'
-import About from '../common/About'
 
 
-function Home() {
+function Home({search}) {
   return (
     <div className='home-container'>   
       <Banner/>
       <Brands/> 
+      {/* <Campaign search={search}/> */}
     </div>
   )
 }

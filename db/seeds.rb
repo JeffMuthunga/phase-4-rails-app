@@ -1,20 +1,22 @@
 require 'faker'
 
-images = ["https://images.pexels.com/photos/2980955/pexels-photo-2980955.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=699.825&fit=crop&h=1133.05",
-    "https://images.pexels.com/photos/463996/pexels-photo-463996.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/186576516.jpg?k=b31efb6b486fbd01e812ba18d33f62b4f7fa68bce04ada60143aa6460c257718&o=&hp=1",
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/d9/bf/a5/biggest-bedroom-48-square.jpg?w=1200&h=-1&s=1",
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/8e/34/3f/kole-kole.jpg?w=1200&h=-1&s=1",
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/b8/4a/4a/southern-palms-beach.jpg?w=1200&h=-1&s=1",
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/09/ad/27/severin-sea-lodge.jpg?w=1100&h=-1&s=1",
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/09/ad/27/severin-sea-lodge.jpg?w=1100&h=-1&s=1",
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/ef/9b/83/palacina-residence-suites.jpg?w=1200&h=-1&s=1",
-    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/37/52/56/suite.jpg?w=1200&h=-1&s=1",
-    "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1600"
-    ]
-
-    categoryarr = ["Global Warming/Environment","Animals","Education","Health","Musicians/Artists", "Small Business"]
+images = [
+"https://images.pexels.com/photos/36785/soldier-military-uniform-american.jpg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/933624/pexels-photo-933624.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/933620/pexels-photo-933620.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/159935/pexels-photo-159935.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/6995244/pexels-photo-6995244.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/13995877/pexels-photo-13995877.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/6590915/pexels-photo-6590915.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/8061642/pexels-photo-8061642.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/87772/soldiers-military-usa-weapons-87772.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/4427545/pexels-photo-4427545.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/7731402/pexels-photo-7731402.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/9987798/pexels-photo-9987798.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/5493208/pexels-photo-5493208.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/9451386/pexels-photo-9451386.jpeg?auto=compress&cs=tinysrgb&w=1600",
+"https://images.pexels.com/photos/7345449/pexels-photo-7345449.jpeg?auto=compress&cs=tinysrgb&w=1600"
+]
 
 puts "seeding..................."
 
@@ -31,8 +33,8 @@ puts "seeding..................."
 10.times do
     Campaign.create(
         title: Faker::Lorem.sentence(word_count: 3),
-        description: Faker::Lorem.paragraph(sentence_count: 3),
-        category: categoryarr.sample,
+        description: "In the past, mainstream media has often played into several stereotypes when portraying South Asian characters and culture. Hungama strives to dismantle decades of these storylines and celebrate South Asian culture, while also finding a bridge between a cultural and Western identity.",
+        category: Faker::Job.field,
         goal_amount: Faker::Number.decimal(l_digits: 5, r_digits: 2),
         image_url: images.sample,
         current_amount: Faker::Number.decimal(l_digits: 4, r_digits: 1),
