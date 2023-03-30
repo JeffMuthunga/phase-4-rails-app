@@ -39,7 +39,7 @@ function CardDetails() {
         .then(data => setReviewData(data))
 
     },[])
-    // console.log(reviewData[0].user.username)
+    
     let goal_percent = Math.round((data.current_amount/data.goal_amount)*100)
    
     function handleChange(e){
@@ -66,12 +66,13 @@ function CardDetails() {
     function handleFormChange(e) {
         setFormData({
             ...formData,
-            [e.target.id]: [e.target.value],
+            [e.target.id]: e.target.value,
         })
     }
 
     function handleSubmit(e) {
         e.preventDefault()
+        console.log("f its meant to be")
         fetch('/reviews', {
             method: "POST",
             headers: {
@@ -82,8 +83,8 @@ function CardDetails() {
         .then((r)=>r.json())
         .then((data) =>{
             console.log(data)
+            setReviewData([...reviewData, data])
             setFormData(initialState)
-            setReviewData(data)
         })
     }
 
@@ -133,7 +134,7 @@ function CardDetails() {
       <div className={styles.box}>D</div>
       <div className={styles.box}>G</div>
       <div className={styles.box}>E</div>
-    </div>
+        </div>
         </div>
 
     </div>
@@ -148,12 +149,12 @@ function CardDetails() {
     </div>
     
     <div className={styles.input_container} style={{ width: "33.33%" }}>
-    <form >
+    <form onSubmit={handleSubmit}>
         <label>Tell us your experience</label>
         <div className={styles.input_group}>
         <input type="text" id='comment' name="comment" value={formData.comment} placeholder="Leave a Review..." onChange={handleFormChange}/>     
         <input type="number"  id="rating" max="5" min="0" name="star_rating" value={formData.rating} placeholder="Stars" onChange={handleFormChange}/>       
-        <input type="submit"  value="Post Review" onSubmit={handleSubmit}/>
+        <input type="submit"  value="Post Review" />
         </div>
     </form>
     
