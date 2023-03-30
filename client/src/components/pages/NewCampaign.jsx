@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import Swal from 'sweetalert2'
 import styled from "styled-components";
+
 export default function NewCampaign(){
 // used styled components to avoid merge conflicts
 const FormWrapper = styled.div`
@@ -67,15 +68,16 @@ const SubmitButton = styled.button`
   }
 `;
 function handleSubmit(e){
-    // prevent reloading
+    // prevent reloading 
     e.preventDefault();
+
     const formData={
         title:e.target.title.value,
         description:e.target.description.value,
         category:e.target.category.value,
+        current_amount:e.target.current_amount.value,
         goal_amount:e.target.goal_amount.value,
         image_url:e.target.image_url.value,
-        current_amount:e.target.current_amount.value,
         start_date:e.target.start_date.value,
         end_date:e.target.end_date.value
     };
@@ -92,6 +94,7 @@ function handleSubmit(e){
     .then(data=>data)
     // reset input information
     e.target.reset()
+
     Swal.fire({
         title: 'Success',
         text: 'Added successfully',
@@ -100,6 +103,7 @@ function handleSubmit(e){
         confirmButtonColor:"green"
       })
 }
+
   return (
     <>
     <div className="campaign-image">
@@ -130,11 +134,18 @@ function handleSubmit(e){
           name="category"
           required
         />
-        <FormLabel htmlFor="goal_amount">Goal amount:</FormLabel>
+        <FormLabel htmlFor="current_amount">Current amount:</FormLabel>
+        <FormInput
+          id="current_amount"
+          type="number"
+          name="current_amount"
+          required
+        />
+         <FormLabel htmlFor="goal_amount">Goal amount:</FormLabel>
         <FormInput
           id="goal_amount"
           type="number"
-          name="title"
+          name="goal_amount"
           required
           min="10"
         />
@@ -149,13 +160,14 @@ function handleSubmit(e){
         <FormInput
           id="start_date"
           type="date"
-          name="title"
+          name="start_date"
           required
         />
         <FormLabel htmlFor="end_date">End date:</FormLabel>
         <FormInput
           id="end_date"
-          name="title"
+          type="date"
+          name="end_date"
           required
         />
         <SubmitButton type="submit">Submit</SubmitButton>
@@ -165,5 +177,3 @@ function handleSubmit(e){
     </>
   );
 };
-
-
