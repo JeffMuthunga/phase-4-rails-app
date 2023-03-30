@@ -1,11 +1,8 @@
-class User < ApplicationRecord
-    has_many :campaigns 
-    has_many :pledges 
-    has_many :reviews
-    
+class User < ActiveRecord::Base
+    has_many :questions
     has_secure_password
 
-    validates :email, presence: true, uniqueness: true
-    validates :password, presence: true, length: {minimum: 8}
+    validates :username, presence: true,length: { minimum: 4 },  uniqueness: true
+    validates :email, presence: true,  uniqueness: true
 
 end

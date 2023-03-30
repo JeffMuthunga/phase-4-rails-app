@@ -6,11 +6,17 @@ Rails.application.routes.draw do
     resources :reviews
 
   end
-  resources :users
-  post "/signup", to: "users#create"
-  get "/me", to: "users#show"
-  post "login", to: "sessions#create"
-  delete "logout", to: "sessions#destroy"
+  get "/user", to: "user#index"
+  post "/signup", to: "user#create"  
+  get "/loggedin", to: "user#loggedin"
+
+  post "/login", to: "session#login"
+  delete "/logout", to: "session#logout"
+  get "/login", to: "session#login"
+
+
+  get "/campaign", to: "campaigns#index"
+  post "/campaign", to: "campaigns#create"
 
 
   
