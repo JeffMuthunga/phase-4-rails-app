@@ -43,7 +43,7 @@ function Signup() {
             showConfirmButton: false,
             timer: 3000,
           });
-          navigate("/dashboard");
+          navigate("/login");
         } else {
           Swal.fire({
             icon: "error",
