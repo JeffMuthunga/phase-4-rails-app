@@ -11,7 +11,6 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [change, setOnChange] = useState(false);
   const [errors, setErrors] = useState([])
 
   // sign up
