@@ -11,13 +11,7 @@ class ReviewsController < ApplicationController
 
     def create
         review = Review.create!(review_params)
-
-        if review.valid?
-            render json: { "success": "saved successfully!"}
-            render json: review, status: :created
-        else
-            render json: review.errors.messages
-        end
+        render json: review, status: :ok
     end 
 
     def update 
