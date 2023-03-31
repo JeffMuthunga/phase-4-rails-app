@@ -38,7 +38,7 @@ class CampaignsController < ApplicationController
     end 
 
     def campaign_params
-        params.permit(:title, :description, :category, :goal_amount, :start_date, :end_date, :user_id)
+        params.permit(:title, :description, :category, :goal_amount, :start_date, :end_date)
     end
 
 end

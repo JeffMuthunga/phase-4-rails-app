@@ -26,6 +26,8 @@ function NavBar() {
     return ()=> window.removeEventListener('scroll',changeNavBackground)//cleanup
   },[])
 
+  
+
   return (
     <div className={`${styles.nav} ${blackBG && `${styles.nav_black}`}`}>
       <div className={styles.mainNav}>
@@ -41,7 +43,7 @@ function NavBar() {
         </ul> 
       </div>
       <button className={styles.home_button}>
-      <Link to='/login' style={{textDecoration: 'none',color: 'white'}}><span>Log in</span></Link>
+      <Link to='/login' style={{textDecoration: 'none',color: 'black'}}><span>Log out</span></Link>
       </button>
     </div>
   )

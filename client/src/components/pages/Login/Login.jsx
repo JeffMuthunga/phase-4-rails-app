@@ -3,36 +3,28 @@ import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Error from "../../common/Error/Error";
 
 function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const [change, setOnChange] = useState(false);
+  const [errors, setErrors] = useState([])
+  
   // login
-  const login = (username, password) => {
-    fetch("/login", {
+  function login() {
+    fetch('/login', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username,
-        password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        setOnChange(!change);
-        if (response.errors) {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: response.errors,
-            footer: '<a href="">Why do I have this issue?</a>',
-          });
-        } else if (response.loggedin) {
+        username: username,
+        password: password
+      })
+      }).then((r)=> {
+        if(r.ok) {
           Swal.fire({
             position: "center",
             icon: "success",
@@ -40,16 +32,18 @@ function Login() {
             showConfirmButton: false,
             timer: 3000,
           });
-          navigate("/dashboard");
+          navigate("/home")
+        } else if (!r.ok){
+          r.json().then((err)=>setErrors(err.errors))
         } else {
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Something went wrong!",
+            text: "Server Error!",
           });
         }
-      });
-  };
+      })
+  }
 
   const handleSubmit = (e) => {
     // send Data to rails
@@ -86,27 +80,11 @@ function Login() {
           />
         </div>
 
-        {/* <div className={styles.input_container}> */}
-        {/* <label className={styles.input_label} htmlFor="email_field">
-            Email
-          </label> */}
-        {/* <EmailIcon className="icon" /> */}
-        {/* <input
-            placeholder="name@mail.com"
-            // onChange={(e) => setEmail(e.target.value)}
-            title="Input email"
-            name="input-email"
-            type="email"
-            className={styles.input_field}
-            id="email_field"
-          /> */}
-        {/* </div> */}
-
         <div className={styles.input_container}>
           <label className={styles.input_label} htmlFor="password_field">
             Password
           </label>
-          {/* <PasswordIcon className="icon" /> */}
+
           <input
             placeholder="********"
             title="Input title"
@@ -116,6 +94,7 @@ function Login() {
             className={styles.input_field}
             id="password_field"
           />
+          {errors.map((element, index)=><Error key={index}>{element}</Error>)}
           <button
             // disabled={!username || !password}
             className={styles.sign_in_btn}
@@ -129,8 +108,6 @@ function Login() {
           <span> Or</span>
           <hr className={styles.line} />
         </div>
-
-        {/* <button className={styles.sign_in_apl}> */}
         <Link
           to="/signup"
           className={styles.sign_in_apl}
@@ -138,12 +115,7 @@ function Login() {
         >
           <span>Sign up</span>
         </Link>
-        {/* </button>  */}
-        {/* <FormField>
-          {errors.map((err) => (
-            <Error key={err}>{err}</Error>
-          ))}
-        </FormField> */}
+
       </form>
     </div>
   );
