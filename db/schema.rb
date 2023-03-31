@@ -30,7 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_164320) do
     t.integer "campaign_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_pledges_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -40,7 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_164320) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,6 +49,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_164320) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "pledges", "users"
-  add_foreign_key "reviews", "users"
 end

@@ -1,5 +1,5 @@
 import React from 'react'
-import billboardHeroImage from '../images/happiness.jpg'
+import billboardHeroImage from '../images/crowd_funding image.avif'
 import styles from './Banner.module.css'
 
 function Banner() {
@@ -11,22 +11,17 @@ function Banner() {
                 <div className={styles.billboard__fadeBottom}/>
             </div>
             <div className={styles.info}>
-                <div className={styles.description}>
-                   <span>
-                    <h1 style={{fontWeight: 'bolder'}}>
-                        Step Forward, Make the World a <span style={{color: "green"}}>Better Place.</span>
-                    </h1>
-                    </span> 
-                    We help organizations transform peolpe's lives by creating a platform to raise funds! 
+                <div className={styles.description}> 
+                    <h1 style={{fontSize: '100px'}}>CROWD FUNDING</h1>                  
+                    <h2 style={{fontWeight: 'bolder'}}>
+                        Raising Money for a <span style={{color: "gold"}}>Better World!</span>
+                    </h2>                
                 </div>
                 <div className={styles.buttonLinks}>
-                        <a className='billboard_btn btn btn-success btn-lg' href='/'> 
+                        <a className='billboard_btn btn btn-warning btn-lg' href='/'> 
                             <span>Get Started</span>               
                         </a>
-                        <button className='billboard_btn btn btn-secondary btn-lg'>
-                            Got Questions?
-                        </button>
-                    </div> 
+                </div> 
             </div>
 
         </div>
