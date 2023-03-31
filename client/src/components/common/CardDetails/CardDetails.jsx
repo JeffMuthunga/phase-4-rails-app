@@ -8,9 +8,6 @@ import {useParams} from 'react-router-dom'
 import Error from '../Error/Error';
 
 
-
-
-
 function CardDetails() {
     const id = useParams().id
 
