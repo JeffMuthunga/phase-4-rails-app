@@ -40,7 +40,7 @@ function Login() {
             showConfirmButton: false,
             timer: 3000,
           });
-          navigate("/dashboard");
+          navigate("/");
         } else {
           Swal.fire({
             icon: "error",

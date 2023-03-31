@@ -15,7 +15,7 @@ class UserController < ApplicationController
         end
    end
 
-   def loggedin
+   def show
      user = User.find_by(id: session[:user_id] ) 
      if(user)
         render json: {loggedin: true, user: user}

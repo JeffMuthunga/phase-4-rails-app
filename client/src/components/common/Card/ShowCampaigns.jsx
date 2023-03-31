@@ -20,10 +20,10 @@ function ShowCampaigns({campaigns, filterCampaign, setCampaigns}) {
             <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Musicians/Artists")}>Musicians/Artists</button>
             <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Small Business")}>Small Businness</button>        </div>
         {
-            campaigns.map((campaign, index)=>(
+            campaigns.map((campaign)=>(
                 <CampaignItem 
                 campaign ={campaign}
-                index = {index}
+                key={campaign.id}
                 onDeleteItem={handleDeleteItem}/>
             ))
         }
