@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+    before_action :authorize
     skip_before_action :authorize, only: [:create]
 
    def index 
@@ -7,14 +8,14 @@ class UserController < ApplicationController
    end
 
    def create 
-        user = User.create(email: params[:email], username: params[:username], password: params[:password])
+        user = User.create!(user_params)
         if user.valid?
-            render json: { status: :created, signup: true, user: user}
+            session[:user_id] = user.id
+            render json: user, status: 201
         else
-            render json: user.errors.messages
+            rendor json: {errors: "User invalid"}, status: 422
         end
-   end
-
+    end
    def show
      user = User.find_by(id: session[:user_id] ) 
      if(user)
@@ -22,6 +23,12 @@ class UserController < ApplicationController
      else
         render json: {loggedin: false}
      end      
+   end
+
+   private
+
+   def user_params
+        params.permit(:email, :username, :password, :password_confirmation,)
    end
 
 end
