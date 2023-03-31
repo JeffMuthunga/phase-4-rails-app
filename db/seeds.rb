@@ -1,3 +1,4 @@
+
 require 'faker'
 
 images = [
@@ -34,7 +35,7 @@ puts "seeding..................."
     Campaign.create(
         title: Faker::Lorem.sentence(word_count: 3),
         description: "In the past, mainstream media has often played into several stereotypes when portraying South Asian characters and culture. Hungama strives to dismantle decades of these storylines and celebrate South Asian culture, while also finding a bridge between a cultural and Western identity.",
-        category: Faker::Job.field,
+        category: ,
         goal_amount: Faker::Number.decimal(l_digits: 5, r_digits: 2),
         image_url: images.sample,
         current_amount: Faker::Number.decimal(l_digits: 4, r_digits: 1),

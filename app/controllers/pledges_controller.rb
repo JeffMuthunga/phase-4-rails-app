@@ -1,4 +1,6 @@
 class PledgesController < ApplicationController
+    before_action :authorize
+    
     def index 
         render json: Pledge.all
     end

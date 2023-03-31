@@ -5,9 +5,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import ReviewCard from '../ReviewCard/ReviewCard';
 import {useParams} from 'react-router-dom'
-
-
-
+import Error from '../Error/Error';
 
 
 function CardDetails() {
@@ -24,6 +22,7 @@ function CardDetails() {
     const [data, setData] = useState([])
     const [reviewData, setReviewData] = useState([])
     const [pledge, setPledge] = useState(0)
+    const [errors, setErrors] =useState([])
     const [formData, setFormData] = useState(initialState)
 
     useEffect(()=>{
@@ -72,7 +71,6 @@ function CardDetails() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log("f its meant to be")
         fetch('/reviews', {
             method: "POST",
             headers: {
@@ -80,14 +78,20 @@ function CardDetails() {
               },
               body: JSON.stringify(formData)
         })
-        .then((r)=>r.json())
-        .then((data) =>{
-            console.log(data)
-            setReviewData([...reviewData, data])
-            setFormData(initialState)
-        })
-    }
-
+        .then((r)=>{
+            if(r.ok) {
+                r.json().then((data)=>{
+                    setReviewData([...reviewData, data])
+                    setFormData(initialState)
+                })
+            } else {
+                r.json().then((err)=>{
+                    setErrors(err.errors)
+                })
+            }       
+            })
+        }
+        
 
 
   return (
@@ -99,6 +103,7 @@ function CardDetails() {
         <div className={styles.photo_container}>
             <img src={data.image_url} alt={data.title} />
         </div>
+
         <div className={styles.details_container}>
         <div className={styles.separator}>
             <h2>Campaign progress</h2>
@@ -157,7 +162,9 @@ function CardDetails() {
         <input type="submit"  value="Post Review" />
         </div>
     </form>
-    
+    <ul>
+    {errors.map((element, index)=><Error key={index}>{element}</Error>)}
+    </ul>
     </div>
     </div>
     <div className={styles.reviews_div}>
