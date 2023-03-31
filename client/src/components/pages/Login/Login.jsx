@@ -32,7 +32,7 @@ function Login() {
             showConfirmButton: false,
             timer: 3000,
           });
-          navigate("/")
+          navigate("/home")
         } else if (!r.ok){
           r.json().then((err)=>setErrors(err.errors))
         } else {

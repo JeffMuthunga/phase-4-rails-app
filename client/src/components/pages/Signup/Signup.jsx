@@ -37,7 +37,7 @@ function Signup() {
           showConfirmButton: false,
           timer: 3000,
         });
-        navigate('/')
+        navigate('/home')
       } else {
           r.json().then(err=>setErrors(err.errors))
       }
