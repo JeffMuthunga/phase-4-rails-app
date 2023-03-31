@@ -42,35 +42,6 @@ function Signup() {
           r.json().then(err=>setErrors(err.errors))
       }
     })
-
-
-      // .then((res) => res.json())
-      // .then((response) => {
-      //   setOnChange(!change);
-      //   if (response.errors) {
-      //     Swal.fire({
-      //       icon: "error",
-      //       title: "Oops...",
-      //       text: response.errors,
-      //       footer: '<a href="">Why do I have this issue?</a>',
-      //     });
-      //   } else if (response.signup) {
-      //     Swal.fire({
-      //       position: "center",
-      //       icon: "success",
-      //       title: "Account created successfully!",
-      //       showConfirmButton: false,
-      //       timer: 3000,
-      //     });
-      //     navigate("/login");
-      //   } else {
-      //     Swal.fire({
-      //       icon: "error",
-      //       title: "Oops...",
-      //       text: "Something went wrong!",
-      //     });
-      //   }
-      // });
   };
 
   const handleSubmit = (e) => {
