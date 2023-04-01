@@ -11,9 +11,7 @@ class Campaign < ApplicationRecord
     has_many :reviews
     has_many :pledges 
     has_many :users, through: :pledges
-    # has_many :reviews, through: :user
-
-    #custom methods
+    
     def self.projects_funded
         self.count
         end

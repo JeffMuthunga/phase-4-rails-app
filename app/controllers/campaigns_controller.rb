@@ -44,6 +44,7 @@ class CampaignsController < ApplicationController
         }
       end
 
+
     private 
 
     def find_campaign
