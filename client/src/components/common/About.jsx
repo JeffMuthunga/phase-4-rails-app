@@ -1,7 +1,6 @@
 import React from 'react'
 import oldMan from '../images/old_man.jpg'
 import './About.css'
-import Testimonials from './Testimonials'
 import Values from './Values'
 
 function About() {
@@ -22,10 +21,6 @@ function About() {
         <div>
             <Values/>
         </div>
-        <div>
-            <Testimonials/>
-        </div>
-
     </div>
   )
 }
