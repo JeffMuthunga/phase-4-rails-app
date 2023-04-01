@@ -51,11 +51,6 @@ function Signup() {
 
   return (
     <div className={styles.body_container}>
-      <div className={styles.photo_container}>
-        <h1>Join us</h1>
-        <h2>Help us fund others</h2>
-        <img src={giphy} alt="giphy" />
-      </div>
       <form className={styles.form_container} onSubmit={handleSubmit}>
         <h2>Sign up</h2>
 
@@ -98,12 +93,12 @@ function Signup() {
           />
         </div>
 
-        <div className={styles.separator}>
+        <div className={styles.separator} style={{color: 'GrayText'}}>
           Have an account?{" "}
           <Link
             to="/login"
-            styles={{
-              textDecoration: "none",
+            style={{
+              color : 'gold'
             }}
           >
             Log in
@@ -116,6 +111,7 @@ function Signup() {
           <span>Create account</span>
         </button>
       </form>
+      <div className={styles.login_gradient}/> 
     </div>
   );
 }
