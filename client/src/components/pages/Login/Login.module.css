@@ -1,14 +1,15 @@
-.body_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: grey;
-    height: 98vh;
-    background-image: url('');
-    
-
+.login{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: grey;
+  background: url("https://media.istockphoto.com/id/667095102/photo/crowdfunding-word-in-wood-type.jpg?s=612x612&w=0&k=20&c=FBeYMdXoPzKJ76w4tIp6YF6gubhA5Timw035XAzQEF4=");
+  background-size: cover;
+  height: 100%;
 
 }
+
 
 
 .form_container {
@@ -18,20 +19,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 5px;
     padding: 50px 40px 20px 40px;
     background-color: #ffffff;
     box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
       0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
       0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
     border-radius: 11px;
+    position: absolute;
+    z-index: 3;
+
   }
   
   .logo_container {
     box-sizing: border-box;
     width: 80px;
     height: 80px;
-    background: linear-gradient(180deg, rgba(248, 248, 248, 0) 50%, #F8F8F888 100%);
+    background: linear-gradient(180deg, rgba(54, 54, 54, 0) 0%, #362e2e88 100%);
     border: 1px solid #F7F7F8;
     filter: drop-shadow(0px 0.5px 0.5px #EFEFEF) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
     border-radius: 11px;
@@ -78,7 +82,7 @@
   }
   
   .input_label {
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: #8B8E98;
     font-weight: 600;
   }
@@ -104,8 +108,10 @@
   .sign_in_btn {
     width: 100%;
     height: 40px;
-    border: 0;
-    background: #115DFC;
+    border:none;
+    background-color: #ecc415;
+    box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
+    /* background-image: linear-gradient(180deg,#eed359,gold); */
     border-radius: 7px;
     outline: none;
     color: #ffffff;
@@ -136,7 +142,8 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: #212121;
+    background-color: rgba(14, 13, 13, 0.7);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
     border-radius: 7px;
     outline: none;
     color: #ffffff;
@@ -168,3 +175,28 @@
     color: #8B8E98;
     text-decoration: underline;
   }
+
+  .login_gradient{
+    height: 100vh;
+    z-index: 1;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8)0,
+        rgba(0, 0, 0, 0)60%,
+        rgba(0, 0, 0, 0.8)100%
+    );
+}
+
+
+.signup_link{
+  color: #212121;
+  margin-left: 5px;
+}
+
+.signup_link:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  color: #131312;
+}

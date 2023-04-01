@@ -27,7 +27,7 @@ function App() {
   return (
     <div>
       {!isHome && !isLogin && !isSignup && <NavBar setSearchString={setSearchString}/>}
-      
+      <NavBar/>
       <Routes>
         <Route path='/' element={<Navigate to='/login'/>}/>
         <Route path='/home' element={<Home search={search}/>}/>
@@ -38,7 +38,6 @@ function App() {
         <Route path='/signup' element={<Signup/>}/>        
         <Route path='/campaigns/:id' element={<CardDetails/>}/>
       </Routes>
-      <Footer/>
     </div>
   );
 }
