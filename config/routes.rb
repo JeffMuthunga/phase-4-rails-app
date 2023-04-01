@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   end
 
-
   get "/user", to: "user#index"
   post "/signup", to: "user#create"  
   get "/loggedin", to: "user#show"

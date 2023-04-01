@@ -12,7 +12,7 @@ const FormWrapper = styled.div`
   max-width: 600px;
   margin: 0 46%;
   margin-top: -56%;
-  padding: 6rem;
+  padding: 3rem;
   background-color: rgb(231, 231, 231);
   border-radius: 8px;
   // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

@@ -18,7 +18,7 @@ function CampaignItem({campaign, onDeleteItem}) {
         <div className="card h-100 text-center p-4">
           <img src={campaign.image_url} style={{objectFit: "cover"}} className="card-img-top" alt={campaign.title} height="400px"/>
           <div className="card-body">
-              <h5 className="card-title mb-0">{truncate(campaign.description, 150)}</h5>
+              <h5 className="card-title mb-0">{truncate(campaign.description, 100)}</h5>
               <p className="card-text lead fw-bold">${campaign.goal_amount}</p>
               <div className="buttons" style={{display: "flex", justifyContent: "space-between"}}>
                 <NavLink to={`/campaigns/${campaign.id}`} className="btn btn-outline-dark">View Campaign</NavLink>
