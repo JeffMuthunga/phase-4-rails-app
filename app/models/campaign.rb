@@ -12,4 +12,17 @@ class Campaign < ApplicationRecord
     has_many :pledges 
     has_many :users, through: :pledges
     # has_many :reviews, through: :user
+
+    #custom methods
+    def self.projects_funded
+        self.count
+        end
+    
+        def self.amount_raised
+            sum(:current_amount)
+        end
+        
+        def self.total_pledges_amount
+            sum(:pledges.length)
+        end
 end
