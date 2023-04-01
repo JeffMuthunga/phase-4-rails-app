@@ -2,6 +2,7 @@ import React from 'react'
 import billboardHeroImage from '../images/crowd_funding image.avif'
 import styles from './Banner.module.css'
 
+
 function Banner() {
   return (
     <div className={styles.billboard}>
@@ -17,11 +18,6 @@ function Banner() {
                         Raising Money for a <span style={{color: "gold"}}>Better World!</span>
                     </h2>                
                 </div>
-                <div className={styles.buttonLinks}>
-                        <a className='billboard_btn btn btn-warning btn-lg' href='/'> 
-                            <span>Get Started</span>               
-                        </a>
-                </div> 
             </div>
 
         </div>
