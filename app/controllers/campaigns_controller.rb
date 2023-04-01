@@ -30,6 +30,19 @@ class CampaignsController < ApplicationController
         campaign.destroy
         head :no_content 
     end 
+    
+    def custom_methods
+        
+        @projects_funded = Campaign.projects_funded
+        @total_goal_amount = Campaign.amount_raised
+        @total_pledges_amount = Campaign.total_pledges_amount
+
+        render json: {
+          projects_funded: @projects_funded,
+          total_goal_amount: @total_goal_amount,
+          total_pledges_amount: @total_pledges_amount
+        }
+      end
 
     private 
 

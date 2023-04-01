@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   post "/login", to: "session#create"
   delete "/logout", to: "session#destroy"
 
-
+  get "/custom_methods", to: "campaigns#custom_methods"
   
 end

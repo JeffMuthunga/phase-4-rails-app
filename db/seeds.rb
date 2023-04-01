@@ -19,6 +19,7 @@ images = [
 "https://images.pexels.com/photos/7345449/pexels-photo-7345449.jpeg?auto=compress&cs=tinysrgb&w=1600"
 ]
 
+category = ["Global Warming/Environment", "Animals", "Education", "Health", "Musicians/Artists", "Small Business"]
 puts "seeding..................."
 
 # Create 10 users
@@ -35,7 +36,7 @@ puts "seeding..................."
     Campaign.create(
         title: Faker::Lorem.sentence(word_count: 3),
         description: "In the past, mainstream media has often played into several stereotypes when portraying South Asian characters and culture. Hungama strives to dismantle decades of these storylines and celebrate South Asian culture, while also finding a bridge between a cultural and Western identity.",
-        category: ,
+        category: category.sample,
         goal_amount: Faker::Number.decimal(l_digits: 5, r_digits: 2),
         image_url: images.sample,
         current_amount: Faker::Number.decimal(l_digits: 4, r_digits: 1),

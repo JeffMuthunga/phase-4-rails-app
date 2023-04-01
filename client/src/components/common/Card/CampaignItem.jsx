@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
 
-function CampaignItem({campaign, onDeleteItem, index}) {
+function CampaignItem({campaign, onDeleteItem}) {
     function handleDeleteClick() {
         fetch(`/campaigns/${campaign.id}`, {
           method: "DELETE",

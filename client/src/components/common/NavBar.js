@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import logo from '../images/pledge_up_logo.png'
+import logo from '../images/pu_logo.png'
 import styles from "./NavBar.module.css"
 import { Link, NavLink } from 'react-router-dom'
 
@@ -31,7 +31,7 @@ function NavBar() {
   return (
     <div className={`${styles.nav} ${blackBG && `${styles.nav_black}`}`}>
       <div className={styles.mainNav}>
-        <img className={styles.logo} src={logo} alt="Pledge Up Logo"/>      
+        <img className={styles.logo} src={logo} alt="Pledge Up Logo"/> <span style={{color: 'gold', fontSize: '15px'}}>Pledge Up</span>      
         <ul className={styles.navItems}>
         {
             links.map((link)=>{
