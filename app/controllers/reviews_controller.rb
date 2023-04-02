@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+    before_action :authorize
+    skip_before_action :authorize, only: [:index]
+
     def index 
         render json: Review.all
     end
@@ -8,8 +11,9 @@ class ReviewsController < ApplicationController
     end 
 
     def create
-        review = Review.create!(review_params)
-        render json: review, status: :created
+        user = User.find(session[:user_id])
+        review = user.reviews.create!(review_params)
+        render json: review, status: :ok
     end 
 
     def update 
@@ -32,6 +36,6 @@ class ReviewsController < ApplicationController
     end 
 
     def review_params
-        params.permit(:comment, :user_id, :campaign_id, :rating)
+        params.permit(:comment, :campaign_id, :rating)
     end
 end

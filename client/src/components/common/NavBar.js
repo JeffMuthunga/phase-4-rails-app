@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import logo from '../images/pledge_up_logo.png'
+import logo from '../images/pu_logo.png'
 import styles from "./NavBar.module.css"
 import { Link, NavLink } from 'react-router-dom'
 
 
 
 
-function NavBar() {
+function NavBar({user}) {
+  console.log(user)
   const links = [
-    {name: "Home", link:"/"},
+    {name: "Home", link:"/home"},
     {name: "Campaigns", link:"/campaigns"},
     {name: "About", link:"/about"},
     { name:'+ Add Campaign', link:"/campaigns/new"}
@@ -26,10 +27,25 @@ function NavBar() {
     return ()=> window.removeEventListener('scroll',changeNavBackground)//cleanup
   },[])
 
+  function handleClick() {
+    fetch("/logout", {
+      method: "DELETE"
+    }).then((r)=>{
+      if (r.ok) {
+        window.location.reload()
+      }
+    })
+    
+ }
+
+  
+
+  
+
   return (
     <div className={`${styles.nav} ${blackBG && `${styles.nav_black}`}`}>
       <div className={styles.mainNav}>
-        <img className={styles.logo} src={logo} alt="Pledge Up Logo"/>      
+        <img className={styles.logo} src={logo} alt="Pledge Up Logo"/> <span style={{color: 'gold', fontSize: '15px'}}>Pledge Up</span>      
         <ul className={styles.navItems}>
         {
             links.map((link)=>{
@@ -40,9 +56,14 @@ function NavBar() {
           }
         </ul> 
       </div>
-      <button className={styles.home_button}>
-      <Link to='/login' style={{textDecoration: 'none',color: 'white'}}><span>Log in</span></Link>
-      </button>
+      
+      {user.loggedin === true ?(<>
+        <h4 style={{color: 'gold'}}> Welcome, {user.user.username}</h4>
+      <button className={styles.home_button} onClick={handleClick}>
+      <Link to='/home' style={{textDecoration: 'none',color: 'black'}}><span>Log out</span></Link>
+      </button> </>) : (<button className={styles.home_button}>
+        <Link to='/login' style={{textDecoration: 'none',color: 'blue'}}><span>Log in</span></Link>
+      </button>)}
     </div>
   )
 }

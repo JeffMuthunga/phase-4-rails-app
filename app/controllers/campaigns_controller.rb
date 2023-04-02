@@ -1,4 +1,6 @@
 class CampaignsController < ApplicationController
+    skip_before_action :authorize, only: [:index, :create, :destroy]
+
     def index 
         render json: Campaign.all
     end
@@ -23,6 +25,20 @@ class CampaignsController < ApplicationController
         campaign.destroy
         head :no_content 
     end 
+    
+    def custom_methods
+        
+        @projects_funded = Campaign.projects_funded
+        @total_goal_amount = Campaign.amount_raised
+        @total_pledges_amount = Campaign.total_pledges_amount
+
+        render json: {
+          projects_funded: @projects_funded,
+          total_goal_amount: @total_goal_amount,
+          total_pledges_amount: @total_pledges_amount
+        }
+      end
+
 
     private 
 
@@ -31,7 +47,7 @@ class CampaignsController < ApplicationController
     end 
 
     def campaign_params
-        params.permit(:title, :description, :category, :goal_amount, :start_date, :end_date, :user_id)
+        params.permit(:title, :description, :category, :image_url, :current_amount, :goal_amount, :start_date, :end_date)
     end
 
 end

@@ -1,3 +1,4 @@
+
 require 'faker'
 
 images = [
@@ -18,52 +19,46 @@ images = [
 "https://images.pexels.com/photos/7345449/pexels-photo-7345449.jpeg?auto=compress&cs=tinysrgb&w=1600"
 ]
 
+category = ["Environment", "Animals", "Education", "Health", "Artists", "Business"]
 puts "seeding..................."
 
 # Create 10 users
-10.times do
-    User.create(
+30.times do
+    user=User.create!(
         username: Faker::Internet.unique.username,
         email: Faker::Internet.unique.email,
         password: Faker::Internet.password(min_length: 8)
     )
-  end
-  
+
   # Create 10 campaigns
-10.times do
-    Campaign.create(
+    campaign = Campaign.create!(
         title: Faker::Lorem.sentence(word_count: 3),
         description: "In the past, mainstream media has often played into several stereotypes when portraying South Asian characters and culture. Hungama strives to dismantle decades of these storylines and celebrate South Asian culture, while also finding a bridge between a cultural and Western identity.",
-        category: Faker::Job.field,
-        goal_amount: Faker::Number.decimal(l_digits: 5, r_digits: 2),
+        category: category.sample,
+        goal_amount: rand(1..10000),
         image_url: images.sample,
-        current_amount: Faker::Number.decimal(l_digits: 4, r_digits: 1),
+        current_amount: rand(1..2000),
         start_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
-        end_date: Faker::Date.between(from: 2.months.from_now, to: 1.year.from_now),
+        end_date: Faker::Date.between(from: 2.months.from_now, to: 1.year.from_now)
     )
-  end
+# Create 10 r
+      5.times do
+          Review.create(
+          comment: Faker::Lorem.sentence(word_count: 10),
+          user_id: rand(1..30),
+          campaign_id: campaign.id,
+          rating: rand(1..5)
+          )
+        end
+        5.times do
+          Pledge.create(
+            pledge_amount: rand(1..10000),
+            user_id: user.id,
+            campaign_id: rand(1..30)
+          )
+        end
+      
 
-
-
-
-# Create 10 reviews
-10.times do
-    Review.create(
-    comment: Faker::Lorem.sentence(word_count: 10),
-    user_id: Faker::Number.between(from: 1, to: 10),
-    campaign_id: Faker::Number.between(from: 1, to: 10),
-    rating: Faker::Number.between(from: 1, to: 5)
-    )
-end
-
-
-# Create 10 pledges
-10.times do
-  Pledge.create(
-    pledge_amount: Faker::Number.decimal(l_digits: 4, r_digits: 2),
-    user_id: Faker::Number.between(from: 1, to: 10),
-    campaign_id: Faker::Number.between(from: 1, to: 10)
-  )
 end
 
 

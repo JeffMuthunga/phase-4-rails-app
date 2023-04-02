@@ -11,16 +11,20 @@
 .innerContainer{
     position: absolute;
 }
+.heroImage{
+    height: 56.25vw;
+    width: 120%;
+    object-fit: cover;
+}
 
 .billboard .info{   
     position: absolute; 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    left: 4%;   
+    left: 0;   
     right:0; 
     top: 0;
-    width: 36%;
     z-index: 10;
     bottom: 15%;
     margin-top: 520px;
@@ -31,20 +35,13 @@
     margin: 0.9rem;
     font-size: 1rem;
     color: #e5e5e5;
+    margin-left: 20vw;
 }
 
-.heroImage{
-    height: 56.25vw;
-    width: 120%;
-    object-fit: cover;
+.buttonLinks a{
+    margin-left: 20vw;
 }
-
-
-.buttonLinks{
-    display: flex;
-    margin: 25px 0px 0px 0px;
-}
-
+/* 
 .buttonLinks a,
 .buttonLinks button{
     border-radius: 7px;
@@ -54,7 +51,7 @@
     margin: 0 15px 15px 0;
     padding: 0.5rem 1rem;
     font-size:14px;    
-}
+} */
 
 .buttonLinks button{
     background-color: rgba(109, 109, 110, 0.7) ;

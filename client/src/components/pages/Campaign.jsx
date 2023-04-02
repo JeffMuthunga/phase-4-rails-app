@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import ShowCampaigns from '../common/Card/ShowCampaigns'
 import './Campaign.css'
 
-function Campaign({search}) {
+function Campaign({search, user}) {
     const [campaigns, setCampaigns] = useState([])
     const [campaignsToDisplay,setCampaignsToDisplay]= useState ([])
 
@@ -40,7 +40,6 @@ function Campaign({search}) {
             <div className="container my-3 py-5">
                 <div className="row">
                     <div className="col-12 mb-5">
-                        <h1 className="display-6-fw-bolder text-center">Categories</h1>
                         <hr/>
                     </div>
                 </div>
@@ -49,6 +48,7 @@ function Campaign({search}) {
                     campaigns={filteredCampaigns} 
                     filterCampaign={filterCampaign} 
                     setCampaigns = {setCampaigns}
+                    user={user}
                     />
                 </div>
             </div>

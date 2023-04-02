@@ -1,9 +1,10 @@
 footer{
     color:  #6c757d;
     font-size: 13px;
-    margin: 20px auto 0;
+    background-color: rgb(26, 24, 24);
     /* max-width: 980px; */
-    padding: 0 4%;
+   padding-left: 30px;
+   padding-top: 20px;
 }
 
 .service{

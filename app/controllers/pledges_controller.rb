@@ -1,4 +1,6 @@
 class PledgesController < ApplicationController
+    before_action :authorize
+    
     def index 
         render json: Pledge.all
     end
@@ -8,7 +10,8 @@ class PledgesController < ApplicationController
     end
 
     def create
-        pledge = Pledge.create!(pledge_params )
+        user = User.find(session[:user_id])
+        pledge = user.pledges.create!(pledge_params )
         pledge.campaign.update(current_amount:pledge.campaign.current_amount+pledge.pledge_amount)
         render json: pledge, status: :created
     end 
@@ -32,6 +35,6 @@ class PledgesController < ApplicationController
     end 
 
     def pledge_params 
-        params.permit(:pledge_amount, :user_id, :campaign_id)
+        params.permit(:pledge_amount, :campaign_id)
     end
 end
