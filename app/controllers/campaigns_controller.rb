@@ -11,12 +11,7 @@ class CampaignsController < ApplicationController
 
     def create
         campaign = Campaign.create!(campaign_params)
-        if campaign.valid?
-            # render json: { "success": "saved successfully!"}
-            render json: campaign, status: :created
-        else
-            render json: campaign.errors.messages
-        end
+        render json: campaign, status: :created
     end 
 
     def update 
@@ -52,7 +47,7 @@ class CampaignsController < ApplicationController
     end 
 
     def campaign_params
-        params.permit(:title, :description, :category, :goal_amount, :start_date, :end_date)
+        params.permit(:title, :description, :category, :image_url, :current_amount, :goal_amount, :start_date, :end_date)
     end
 
 end

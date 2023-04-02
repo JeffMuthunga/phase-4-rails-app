@@ -13,7 +13,7 @@ function CardDetails() {
 
     const initialState = {
         comment: "",
-        user_id: 5,
+        user_id: 2,
         rating: "",
         campaign_id: id
       };
