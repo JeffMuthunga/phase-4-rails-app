@@ -1,49 +1,17 @@
-.brand_container{
-    text-align: center;
-    margin-top: 1em;
-}
-.brands img{
-    width:120px;
-    height: 10vw;
-object-fit: contain;
+.about_container{
+    margin-top: 100px;
 }
 
+.about_wrapper{
+margin: 40px;
+}  
 
-/*Values*/
-
-.values{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.description{
+    margin-left: 20px;
 }
 
-hr{
-    background-color: lime;
-    color: lime;
-    border-color: lime;
-    height: 3px;
-    width: 20%;
-    margin-top: 0;
-}
-
-
-/* Testimonials*/
-.testimonials{
-    background-color: green;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cases{
-    display: flex;
-    align-items: center;
-}
-.cases img{
-    width:50%;
-    height: 30vw;
-    object-fit: cover;
+.description h1{
+    color: gold;
+    font-weight: 900;
 }
 

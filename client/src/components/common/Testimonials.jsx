@@ -11,7 +11,8 @@ function Testimonials() {
               height='400px'
             />
               <div className="card-body">
-                <h1 className="card-title mb-0">Nderitu's plane</h1> 
+                <h1 className="card-title mb-0">BOEING 254</h1> 
+                <p>Talk about creativity!! Through our website we were able to raise $20 000 for Frederick's helicopter-like vehicle that caused a stir online. This surparsed our target by $1000 </p>
               </div>           
           </div>
           <div className="card w-100 text-center p-4 m-4">            
@@ -22,6 +23,7 @@ function Testimonials() {
               height='400px'/>
               <div className="card-body">
                 <h1 className="card-title mb-0">Pink & Pearl Men's Wear</h1>
+                <p>The Pink Clothesline for Men is a revolutionary clothing line designed to break the stereotype that pink is only for women. This unique collection of men's clothing features a variety of pink hues, from soft pastels to bold fuchsia.We managed to raise $100 000 for them. </p>
               </div>
           </div>
           <div className="card w-100 text-center p-4 m-4">            
@@ -32,6 +34,7 @@ function Testimonials() {
               height='400px'/>
               <div className="card-body">
                 <h1 className="card-title mb-0">FullStack Web Designs by WoTech.</h1>
+                <p>Pledge Up had the pleasure of supporting WoTech in fundraising for their new offices and laptop. The target amount was $50 000 which was met.</p>
               </div>
           </div>
       </div>

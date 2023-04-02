@@ -50,6 +50,7 @@ function App() {
         <Route path='/signup' element={<Signup/>}/>        
         <Route path='/campaigns/:id' element={<CardDetails userId={userId}/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }

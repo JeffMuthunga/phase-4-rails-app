@@ -25,18 +25,19 @@ box-shadow: 20px 20px 20px darken(var(--backgroundColor), 2%),
   width: 100%;
   max-width: 375px;
 }
-.card img {
+.illustration img {
   width: 359px;
   object-fit: cover;
   height: 260px; 
   border-radius: 20px;
 }
+
 button {
 margin: auto;
 margin-bottom: 10px;
 }
 
-.card .ilustration lottie-player {
+.card .illustration lottie-player {
 width: 200px;
 height: 200px;
 border-radius: 100%;

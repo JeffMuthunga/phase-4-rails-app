@@ -15,12 +15,12 @@ function CrowdCard({campaign, user}) {
 
 return (
   <div className="card">
-  <div className="ilustration">
+  <div className="illustration">
   <img src={campaign.image_url} alt="Campaign Image" />
    
   </div>
   <h3>{campaign.title}</h3>
-  <Lottie className="lottie-player"
+  {/* <Lottie className="lottie-player"
       options={{
         animationData,
         background: 'white',
@@ -29,7 +29,7 @@ return (
       }}
       width={200}
       height={200}
-    />
+    /> */}
   <p>
     {campaign.description}
   </p>
