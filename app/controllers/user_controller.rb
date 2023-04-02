@@ -17,11 +17,11 @@ class UserController < ApplicationController
         end
     end
    def show
-     user = User.find_by(id: session[:user_id] ) 
-     if(user)
-        render json: {loggedin: true, user: user}
+     user = User.find(session[:user_id]) 
+     if user
+        render json: {loggedin: true, user: user}, status: :ok
      else
-        render json: {loggedin: false}
+        render json: {loggedin: false, error: "User not found"}, status: 401
      end      
    end
 

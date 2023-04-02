@@ -5,12 +5,11 @@ import animationData from './58070-fallen-tree-and-wind.json';
 import { useNavigate } from 'react-router-dom';
 
 
-function CrowdCard({campaign}) {
+function CrowdCard({campaign, user}) {
   const navigate = useNavigate();
 
-  const handleClick = (campaign) => {
-    
-      navigate(`/campaigns/${campaign.id}`)
+  const handleClick = (campaign,user) => {
+    user === false ? navigate('/login') : navigate(`/campaigns/${campaign.id}`)
     
   }
 
@@ -36,7 +35,7 @@ return (
   </p>
   
   
-    <button onClick={()=>handleClick(campaign)}>View more</button>
+    <button onClick={()=>{handleClick(campaign, user)}}>View more</button>
     
 </div>
 );

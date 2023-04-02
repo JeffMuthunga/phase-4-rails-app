@@ -33,6 +33,7 @@ function Login() {
             timer: 3000,
           });
           navigate("/home")
+          window.location.reload()
         } else if (!r.ok){
           r.json().then((err)=>setErrors(err.errors))
         } else {

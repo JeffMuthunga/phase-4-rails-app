@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Campaign from './components/pages/Campaign';
@@ -14,9 +14,21 @@ import About from './components/common/About';
 
 function App() {
   const [search,setSearch]=useState("")
+  const [user, setUser] = useState(false)
+
+  useEffect(()=>{
+    fetch("/loggedin")
+    .then((r)=>{
+      if (r.ok) {
+        r.json().then((user)=>{
+          setUser(user)})
+      }
+    })
+  }, [])
   
-   function setSearchString(str){
-    setSearch(str);   
+  const userId = user && user.user && user.user.id
+  function setSearchString(str){
+  setSearch(str);   
   }
 
   const { pathname} = useLocation()
@@ -27,16 +39,16 @@ function App() {
   return (
     <div>
       {/* user cannot see the rest of the website of not logged in  */}
-      {!isHome && !isLogin && !isSignup && <NavBar setSearchString={setSearchString}/>}
+      {!isHome && !isLogin && !isSignup && <NavBar user={user} setSearchString={setSearchString}/>}
       <Routes>
         <Route path='/' element={<Navigate to='/login'/>}/>
         <Route path='/home' element={<Home search={search}/>}/>
         <Route path='/campaigns/new' element={<NewCampaign/>}/>
-        <Route path='/campaigns' element={<Campaign search={search}/>}/>
+        <Route path='/campaigns' element={<Campaign search={search} user={user}/>}/>
         <Route path='/about' element={<About/>}/>  
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>        
-        <Route path='/campaigns/:id' element={<CardDetails/>}/>
+        <Route path='/campaigns/:id' element={<CardDetails userId={userId}/>}/>
       </Routes>
     </div>
   );

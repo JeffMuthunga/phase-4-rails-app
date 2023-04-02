@@ -4,7 +4,7 @@ import CrowdCard from '../CrowdCard/CrowdCard';
 import CampaignItem from './CampaignItem';
 import './ShowCampaigns.css'
 
-function ShowCampaigns({campaigns, filterCampaign, setCampaigns}) {
+function ShowCampaigns({campaigns, filterCampaign, setCampaigns, user}) {
 
     const [itemsPerPage, setItemsPerPage] = useState(9)
     const [currentPage, setCurrentPage] = useState(1)
@@ -19,7 +19,7 @@ function ShowCampaigns({campaigns, filterCampaign, setCampaigns}) {
         const itemsToDisplay = campaigns.slice(startIndex, endIndex)
         return (
             <div className='cards-container' >
-                {itemsToDisplay.map(campaign=><CrowdCard campaign={campaign} key={campaign.id}/>)}
+                {itemsToDisplay.map(campaign=><CrowdCard campaign={campaign} key={campaign.id} user={user}/>)}
             </div>)
     }
     function goToPage(pageNumber) {

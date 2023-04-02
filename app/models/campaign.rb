@@ -12,7 +12,7 @@ class Campaign < ApplicationRecord
     has_many :reviews
     has_many :pledges 
     has_many :users, through: :pledges
-
+    has_many :users, through: :reviews
 
     #custom methods
 
