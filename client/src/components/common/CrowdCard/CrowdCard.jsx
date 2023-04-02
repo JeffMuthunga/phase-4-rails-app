@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './CrowdCard.css'
 import Lottie from 'react-lottie';
 import animationData from './58070-fallen-tree-and-wind.json';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function CrowdCard({campaign}) {

@@ -8,7 +8,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 function NavBar() {
   const links = [
-    {name: "Home", link:"/"},
+    {name: "Home", link:"/home"},
     {name: "Campaigns", link:"/campaigns"},
     {name: "About", link:"/about"},
     { name:'+ Add Campaign', link:"/campaigns/new"}

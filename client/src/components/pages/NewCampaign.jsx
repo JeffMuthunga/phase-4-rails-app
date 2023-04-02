@@ -67,6 +67,12 @@ const SubmitButton = styled.button`
     background-color: rgb(1, 45, 1);
   }
 `;
+
+// function handleDeleteItem(deletedItem) {
+//   const updatedItems = campaigns.filter((campaign) => campaign.id !== deletedItem.id);
+//   setCampaigns(updatedItems);
+// }
+
 function handleSubmit(e){
     // prevent reloading 
     e.preventDefault();
