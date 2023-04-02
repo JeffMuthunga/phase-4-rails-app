@@ -8,16 +8,15 @@ import {useParams} from 'react-router-dom'
 import Error from '../Error/Error';
 
 
-function CardDetails() {
+function CardDetails({userId}) {
     const id = useParams().id
-
+    
+    
     const initialState = {
         comment: "",
-        user_id: 2,
         rating: "",
         campaign_id: id
       };
-
     
     const [data, setData] = useState([])
     const [reviewData, setReviewData] = useState([])
@@ -55,7 +54,6 @@ function CardDetails() {
             },
             body: JSON.stringify({
                 pledge_amount: pledge,
-                user_id: 3,
                 campaign_id: id
         })
         })
