@@ -13,7 +13,7 @@ function Statistics() {
     <div className='container'>
         <div className="box">
             <h1>{data.projects_funded}</h1>
-            <h4>project funded</h4>
+            <h4>projects funded</h4>
         </div>
         <div className="box">
             <h1>${data.total_goal_amount}</h1>
