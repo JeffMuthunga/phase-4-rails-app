@@ -19,7 +19,7 @@ images = [
 "https://images.pexels.com/photos/7345449/pexels-photo-7345449.jpeg?auto=compress&cs=tinysrgb&w=1600"
 ]
 
-category = ["Global Warming/Environment", "Animals", "Education", "Health", "Musicians/Artists", "Small Business"]
+category = ["Environment", "Animals", "Education", "Health", "Artists", "Business"]
 puts "seeding..................."
 
 # Create 10 users
