@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   align-items: center;
   gap: 8px;
   margin: 8px 0;
+  font-family: "Fredoka", sans-serif;
 `;
 
 const Alert = styled.span`
