@@ -20,16 +20,16 @@ return (
    
   </div>
   <h3>{campaign.title}</h3>
-  {/* <Lottie className="lottie-player"
+  <Lottie className="lottie-player"
       options={{
         animationData,
         background: 'white',
         loop: true,
         autoplay: true,
       }}
-      width={200}
-      height={200}
-    /> */}
+      width={100}
+      height={100}
+    />
   <p>
     {campaign.description}
   </p>

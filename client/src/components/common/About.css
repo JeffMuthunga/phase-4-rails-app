@@ -1,5 +1,8 @@
+
 .about_container{
     margin-top: 100px;
+    font-family: "Fredoka", sans-serif;
+
 }
 
 .about_wrapper{
@@ -13,5 +16,6 @@ margin: 40px;
 .description h1{
     color: gold;
     font-weight: 900;
+    font-family: "Fredoka", sans-serif;
 }
 

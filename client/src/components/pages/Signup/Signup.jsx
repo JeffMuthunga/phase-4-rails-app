@@ -52,7 +52,7 @@ function Signup() {
   return (
     <div className={styles.body_container}>
       <form className={styles.form_container} onSubmit={handleSubmit}>
-        <h2>Sign up</h2>
+        <h2 style={{fontFamily: "Fredoka, sans-serif"}}>Sign up</h2>
 
         <div className={styles.input_container}>
           <label className={styles.input_label}>Username</label>
