@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Campaign from './components/pages/Campaign';
-import NewCampaign from './components/pages/NewCampaign';
+import NewCampaign from './components/pages/Admin/NewCampaign';
 import Login from './components/pages/Login/Login';
 import Signup from './components/pages/Signup/Signup';
 import NavBar from './components/common/NavBar'
