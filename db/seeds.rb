@@ -23,7 +23,7 @@ category = ["Global Warming/Environment", "Animals", "Education", "Health", "Mus
 puts "seeding..................."
 
 # Create 10 users
-10.times do
+30.times do
     User.create(
         username: Faker::Internet.unique.username,
         email: Faker::Internet.unique.email,
@@ -32,7 +32,7 @@ puts "seeding..................."
   end
   
   # Create 10 campaigns
-10.times do
+30.times do
     Campaign.create(
         title: Faker::Lorem.sentence(word_count: 3),
         description: "In the past, mainstream media has often played into several stereotypes when portraying South Asian characters and culture. Hungama strives to dismantle decades of these storylines and celebrate South Asian culture, while also finding a bridge between a cultural and Western identity.",
@@ -49,7 +49,7 @@ puts "seeding..................."
 
 
 # Create 10 reviews
-10.times do
+30.times do
     Review.create(
     comment: Faker::Lorem.sentence(word_count: 10),
     user_id: Faker::Number.between(from: 1, to: 10),
@@ -60,7 +60,7 @@ end
 
 
 # Create 10 pledges
-10.times do
+30.times do
   Pledge.create(
     pledge_amount: Faker::Number.decimal(l_digits: 4, r_digits: 2),
     user_id: Faker::Number.between(from: 1, to: 10),

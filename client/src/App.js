@@ -26,8 +26,8 @@ function App() {
   
   return (
     <div>
+      {/* user cannot see the rest of the website of not logged in  */}
       {!isHome && !isLogin && !isSignup && <NavBar setSearchString={setSearchString}/>}
-      <NavBar/>
       <Routes>
         <Route path='/' element={<Navigate to='/login'/>}/>
         <Route path='/home' element={<Home search={search}/>}/>

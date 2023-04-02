@@ -14,7 +14,7 @@ function CampaignItem({campaign, onDeleteItem}) {
         return string?.length > n ? string.substr(0,n-1) + '...': string
       }
       return(
-        <div className="campaigns-img col-md-4 mb-4 mt-4 " key={campaign.id}>
+        <div className="campaigns-img col-md-4 mt-4 " key={campaign.id}>
         <div className="card h-100 text-center p-4">
           <img src={campaign.image_url} style={{objectFit: "cover"}} className="card-img-top" alt={campaign.title} height="400px"/>
           <div className="card-body">

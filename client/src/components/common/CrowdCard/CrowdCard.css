@@ -14,8 +14,8 @@ background: var(--backgroundColor);
 background-color: var(--backgroundColor);
 border-radius: 30px;
 text-align: center;
-max-width: 380px;
-margin: 10px auto;
+max-width: 360px;
+margin: 8px auto;
 box-shadow: 20px 20px 20px darken(var(--backgroundColor), 2%),
 -20px -20px 20px lighten(var(--backgroundColor), 2%);
 
@@ -26,7 +26,7 @@ box-shadow: 20px 20px 20px darken(var(--backgroundColor), 2%),
   max-width: 375px;
 }
 img {
-  width: 375px;
+  width: 359px;
   object-fit: cover;
   height: 260px; 
   border-radius: 20px;
