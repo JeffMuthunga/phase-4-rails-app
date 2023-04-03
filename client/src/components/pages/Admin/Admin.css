@@ -45,11 +45,10 @@
     margin-top: 10px;
     margin-right: 20px;
     width: 500px;
+    height:1300px;
     border-radius: 5px;
-    background-color: blueviolet;
-    padding: 20px;
-    margin-left: 20px;
-  
+    background-color: gold;
+    padding: 40px;
     
   }
   .admin-form button {

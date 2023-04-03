@@ -39,12 +39,12 @@ function ShowCampaigns({campaigns, filterCampaign, setCampaigns, user}) {
     <h1 style={{fontFamily: "Fredoka, san-serif"}}> Categories</h1>
         <div style={{fontFamily: "Fredoka, san-serif"}} className="buttons d-flex justify-content-center mb-2 pb-3">
             <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("All")}>All</button>
-            <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Environment")}>Environment</button>
+            <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Global Warming/Environment")}>Environment</button>
             <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Animals")}>Animals</button>
             <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Education")}>Education</button>
             <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Health")}>Health</button>
-            <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Artists")}>Musicians/Artists</button>
-            <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Business")}>Small Business</button>        
+            <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Musicians/Artists")}>Musicians/Artists</button>
+            <button className="btn btn-outline-dark me-2" onClick={()=>filterCampaign("Small Business")}>Small Business</button>        
         </div>
         {displayItems()}
         <div className='pagination-div'>
