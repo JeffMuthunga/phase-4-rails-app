@@ -10,17 +10,8 @@ function Footer() {
         <SocialLinks/>
       </div>
       <div>
-        <SiteLinks/>
-        
+        <SiteLinks/>        
       </div>
-      <div className={styles.service}>
-        <button className="btn btn-outline-secondary"> Service Code </button>
-      </div>
-      <div>
-        <i className="icon copyright" />
-        1997-2023 PledgeUp, Inc.
-      </div>
-    
     </footer>
   )
 }

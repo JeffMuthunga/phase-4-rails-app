@@ -18,7 +18,7 @@ max-width: 360px;
 margin: 8px auto;
 box-shadow: 20px 20px 20px darken(var(--backgroundColor), 2%),
 -20px -20px 20px lighten(var(--backgroundColor), 2%);
-
+margin-bottom: 100px;
 }
 
 .illustration {
