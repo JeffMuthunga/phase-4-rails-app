@@ -2,14 +2,14 @@
 .body_container {
    height: auto;
    padding-top: 70px;
-   
+   font-family: "Fredoka", sans-serif;
+   background-color: whitesmoke;
 
 }
 .container {
     display: flex;
     align-items: center;
     padding: 20px;
-    gap: 80px;
     font-family: "Fredoka", sans-serif;
 }
 
@@ -17,16 +17,19 @@
     justify-content: center;
     align-items: center;
     display:flex;
-    height: 600px;
+    object-fit: contain;
 }
   
 .reviews_div {
   display: grid;
   gap: 1rem;
   flex-wrap:wrap;
-  padding-left: 240px;
-  background-image: url('./charity.jpg');
+  background-color: black;
+  
  
+}
+h1,h2,h3,h4 {
+  font-family: "Fredoka", sans-serif;
 }
 .card-details-reviews {
 
@@ -36,22 +39,24 @@
 }
 
 .photo_container img {
-    max-width: 100%;
-    max-height: 100%;
+  width: 800px;
+  height: 600px;
     align-self: flex-start;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    object-fit: cover;
     
 }
 
 .details_container {
-    width: 400px;
-    height: auto;
+  width: 800px;
+  height: 600px;
     border-radius: 20px;
     align-items: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     padding: 20px;   
+    background-color: gold;
 }
 h1,h2,h3,h4 {
     text-align: center;
