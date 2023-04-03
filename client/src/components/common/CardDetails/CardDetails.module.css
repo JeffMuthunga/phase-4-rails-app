@@ -26,7 +26,6 @@
   flex-wrap:wrap;
   background-color: black;
   
- 
 }
 h1,h2,h3,h4 {
   font-family: "Fredoka", sans-serif;
@@ -119,7 +118,7 @@ h1,h2,h3,h4 {
   .pledge_amount input {
     width: 50%;
     margin-top: 30px;
-    margin-left: 97px;
+    margin-left: 150px;
   }
   
   input {
@@ -144,7 +143,7 @@ h1,h2,h3,h4 {
   .button {
     display: flex;
     margin-top: 10px;
-    margin-left: 90px;
+    margin-left: 200px;
 
     
     
