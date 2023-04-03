@@ -79,7 +79,8 @@ Coming soon...
 4. Faith https://github.com/wanjikuKim-collab
 5. Kazungu https://github.com/kazungu01
   
-
+## License
+(./license)
 ## Support and Contact Information
 PLEDGUP is an open-source project, so contributions from the community are welcome. If you are interested in contributing to the project or for any enquireies and queries feel free to contact us @jeffmuthunga@gmail.com 
 
