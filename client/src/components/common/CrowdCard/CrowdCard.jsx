@@ -14,30 +14,29 @@ function CrowdCard({campaign, user}) {
   }
 
 return (
-  <div className="card">
-  <div className="illustration">
-  <img src={campaign.image_url} alt="Campaign Image" />
-   
+  <div className='crowd_card'>
+    <div className="card">
+      <div className="illustration">
+        <img src={campaign.image_url} alt="Campaign Image" />    
+      </div>
+      <h3>{campaign.title}</h3>
+      <Lottie className="lottie-player"
+          options={{
+            animationData,
+            background: 'white',
+            loop: true,
+            autoplay: true,
+          }}
+          width={100}
+          height={100}
+        />
+      <p>
+        {campaign.description}
+      </p>    
+      <button onClick={()=>{handleClick(campaign, user)}}>View more</button>
+      
+    </div>
   </div>
-  <h3>{campaign.title}</h3>
-  <Lottie className="lottie-player"
-      options={{
-        animationData,
-        background: 'white',
-        loop: true,
-        autoplay: true,
-      }}
-      width={100}
-      height={100}
-    />
-  <p>
-    {campaign.description}
-  </p>
-  
-  
-    <button onClick={()=>{handleClick(campaign, user)}}>View more</button>
-    
-</div>
 );
 }
 

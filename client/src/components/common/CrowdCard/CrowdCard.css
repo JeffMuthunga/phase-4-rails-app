@@ -10,7 +10,7 @@ body {
 background: var(--backgroundColor);
 }
 
-.card {
+.crowd_card .card {
 background-color: var(--backgroundColor);
 border-radius: 30px;
 text-align: center;
