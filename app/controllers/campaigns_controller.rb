@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-    skip_before_action :authorize, only: [:index, :create, :destroy]
+    skip_before_action :authorize, only: [:index, :create, :destroy, :show]
 
     def index 
         render json: Campaign.all
