@@ -200,7 +200,7 @@ function handleUpdateSubmit(e)
         <div className="form-div">
         <h3>Fetch</h3>
         <form onSubmit={handleFetchSubmit}> 
-        <label htmlFor="fname">Fetch Campaign</label>
+        <label htmlFor="fname">Fetch Campaign using id</label>
         <input type="number" onChange={(e)=>setCampaignId(e.target.value)} />
         <input type="submit" value="Fetch"/>  
         </form>
