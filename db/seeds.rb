@@ -318,7 +318,7 @@ puts "seeding..................."
 
 
 # Create 10 reviews
-10.times do
+70.times do
     Review.create!(
     comment: Faker::Lorem.sentence(word_count: 10),
     user_id: rand(1..30),
@@ -329,7 +329,7 @@ end
 
 
 # Create 10 pledges
-60.times do
+100.times do
   Pledge.create!(
     pledge_amount: rand(1..10000),
     user_id: rand(1...30),
