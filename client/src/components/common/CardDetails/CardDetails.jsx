@@ -96,8 +96,8 @@ function CardDetails({userId}) {
 
   return (
     <div className={styles.body_container}>
-        <h1>{data.title}</h1>
-        <h2>Project by Nawal Mubin</h2>
+        <h2> Campaign</h2>
+        <h1 style={{fontWeight: "bold", color: "gold"}}>{data.title}</h1>
         <h3>Category: {data.category}</h3>
     <div className={styles.container}>
         <div className={styles.photo_container}>
@@ -125,8 +125,8 @@ function CardDetails({userId}) {
         }} />
         
     </div>
-    <h3>Kshs<span style={{color: 'green'}}>{data.current_amount}</span></h3>
-    <h4>Goal: Kshs<span style={{color: 'red', fontSize: '2rem'}}>{data.goal_amount}</span></h4>
+    <h3>$<span style={{color: 'green'}}>{data.current_amount}</span></h3>
+    <h4>Goal: $<span style={{color: 'red', fontSize: '2rem'}}>{data.goal_amount}</span></h4>
 
     <div className={styles.pledge_amount}>
         <input type="number"  onChange={handleChange} name="amount" placeholder="Amount"/>  
@@ -148,8 +148,8 @@ function CardDetails({userId}) {
         </div>
     <div className={styles.description_reviews}>
     <div className={styles.description_container} style={{ gridColumn: "1 / span 2", width: "66.67%" }}>
-        <h3>Story</h3>
-        <h4><span style={{color: 'brown', fontSize: '1.5rem'}}>{data.description}</span></h4>
+        <h3 style={{color: "green"}}>Story</h3>
+        <h4><span style={{fontSize: '1.5rem'}}>{data.description}</span></h4>
         
     </div>
     
@@ -167,6 +167,7 @@ function CardDetails({userId}) {
     </ul>
     </div>
     </div>
+    <h2>Reviews</h2>
     <div className={styles.reviews_div}>
         <div className={styles.card_details_reviews}>
         {reviewData.map((review)=> <ReviewCard reviewData={review} key={review.id}/>)}
