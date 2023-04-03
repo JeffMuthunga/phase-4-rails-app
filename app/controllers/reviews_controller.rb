@@ -3,7 +3,9 @@ class ReviewsController < ApplicationController
     skip_before_action :authorize, only: [:index]
 
     def index 
-        render json: Review.all
+        @campaign = Campaign.find(params[:campaign_id])
+        @reviews = @campaign.reviews
+        render json: @reviews
     end
 
     def show 

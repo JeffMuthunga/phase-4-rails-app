@@ -34,7 +34,9 @@ function CardDetails({userId}) {
     useEffect(()=>{
         fetch(`/campaigns/${id}/reviews`)
         .then(r=>r.json())
-        .then(data => setReviewData(data))
+        .then((data) => {
+            console.log(data)
+            setReviewData(data)})
 
     },[])
     
