@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styles from './SiteLinks.module.css'
 
 function SiteLinks() {
@@ -16,7 +17,6 @@ function SiteLinks() {
     "Privacy",
     "Contact Us"
   ]
-
   return (
     <div>
       <ul className={styles.linksList}>
@@ -27,6 +27,7 @@ function SiteLinks() {
           </li>)})
         }
       </ul>
+      <NavLink className={styles.Link} style={{textDecoration: "none"}}to="/admin">Admin</NavLink>
     </div>
    
   )

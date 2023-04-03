@@ -7,12 +7,10 @@ import { Link, NavLink } from 'react-router-dom'
 
 
 function NavBar({user}) {
-  console.log(user)
   const links = [
     {name: "Home", link:"/home"},
     {name: "Campaigns", link:"/campaigns"},
-    {name: "About", link:"/about"},
-    { name:'+ Add Campaign', link:"/campaigns/new"}
+    {name: "About", link:"/about"}
   ]
 
   // displaying black background on scrolling down
@@ -58,7 +56,11 @@ function NavBar({user}) {
       </div>
       
       {user.loggedin === true ?(<>
-        <h4 style={{color: 'gold'}}> Welcome, {user.user.username}</h4>
+        <h4 style={{
+          color: 'gold',
+          fontFamily: "Fredoka, sans-serif",
+          marginLeft: "490px"
+      }}> Welcome, {user.user.username}</h4>
       <button className={styles.home_button} onClick={handleClick}>
       <Link to='/home' style={{textDecoration: 'none',color: 'black'}}><span>Log out</span></Link>
       </button> </>) : (<button className={styles.home_button}>
